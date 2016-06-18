@@ -1,5 +1,6 @@
 tests\*
 Test\*
 scratch.*
-
+sandbox.*
 *.pyc
+.idea
