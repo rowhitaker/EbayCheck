@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<eBay>
+    <EBayTime>2016-06-18 01:11:33</EBayTime>
+    <Errors>
+        <Error>
+            <Code>2</Code>
+            <ErrorClass>RequestError</ErrorClass>
+            <SeverityCode>1</SeverityCode>
+            <Severity>SeriousError</Severity>
+            <Line>0</Line>
+            <Column>0</Column>
+            <ShortMessage><![CDATA[ Unsupported verb. ]]></ShortMessage>
+        </Error>
+    </Errors>
+</eBay>
