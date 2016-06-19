@@ -11,6 +11,7 @@ response_encoding = 'XML'  # also JSON, SOAP
 
 full_get_url = '{0}/shopping?callname=FindProducts&responseencoding={1}&appid={2}&siteid=0&version=525&QueryKeywords=harry%20potter&MaxEntries=2'.format(base_url, response_encoding, app_id)
 
+full_get_url = 'http://open.api.ebay.com/shopping?callname=FindProducts&responseencoding=XML&appid=RickyWhi-EbayChec-PRD-65a6153ed-82a69392&siteid=0&version=525&QueryKeywords=harry%20potter&AvailableItemsOnly=true&MaxEntries=2'
 print 'full get url: {}'.format(full_get_url)
 
 r = requests.get(full_get_url)
@@ -38,8 +39,6 @@ body_xml = """
 <?xml version="1.0" encoding="utf-8"?>
 <FindProductsRequest xmlns="urn:ebay:apis:eBLBaseComponents">
   <QueryKeywords>Harry Potter</QueryKeywords>
-  <MaxEntries>2</MaxEntries>
-  <AvailableItemsOnly>true</AvailableItemsOnly>
 </FindProductsRequest>
 """
 

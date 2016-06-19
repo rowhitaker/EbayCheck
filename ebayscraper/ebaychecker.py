@@ -9,7 +9,7 @@ class MyHTMLParser(HTMLParser):
 
     def __init__(self):
         HTMLParser.__init__(self)
-        self.new_data = None # dictionary of our table data, created from new_data_list
+        self.new_data = None  # dictionary of our table data, created from new_data_list
         self.new_data_list = []
         self.table_data = []  # final list of dictionaries containing new data
         self.recording = 0
@@ -43,8 +43,12 @@ class MyHTMLParser(HTMLParser):
 
     def finalize_new_data(self):
         for data in self.new_data_list:
-            self.new_data[self.new_data.keys()[self.new_data_list.index(data)]] = data
-        self.reset_new_data()
+            print 'data {}'.format(data)
+            index_of_list_item_to_add = self.new_data_list.index(data)
+            key_in_dict_of_item_to_add = self.new_data.keys()[index_of_list_item_to_add]
+            print index_of_list_item_to_add, key_in_dict_of_item_to_add
+            self.new_data[key_in_dict_of_item_to_add] = data
+            # self.new_data[self.new_data.keys()[self.new_data_list.index(data)]] = data
 
     def reset_new_data(self):
         '''
@@ -65,26 +69,28 @@ class MyHTMLParser(HTMLParser):
 
 if __name__ == "__main__":
 
-    # request_url = 'https://techliquidators.com/index.cfm/p/34/i/1799983'
-    #
+    request_url = 'https://techliquidators.com/index.cfm/p/34/i/1799356'
+
     log = logger.build_logger(name='EbayScraper', level='DEBUG')
-    # log.info('Making our request')
-    # log.info('Request URL: {}'.format(request_url))
-    # # r = requests.get("https://techliquidators.com/index.cfm/p/34/i/1798967")
-    # r = requests.get(request_url)
-    # log.info('Response status code: {}'.format(r.status_code))
-    # log.debug('Response status cookies: {}'.format(r.cookies))
-    # log.debug('Response headers: {}'.format(r.headers))
-    # log.debug('Response content: {}'.format(r.content))
-    #
-    # parser = MyHTMLParser()
-    # parser.feed(r.content)
+    log.info('Making our request')
+    log.info('Request URL: {}'.format(request_url))
+    # r = requests.get("https://techliquidators.com/index.cfm/p/34/i/1798967")
+    r = requests.get(request_url)
+    log.info('Response status code: {}'.format(r.status_code))
+    log.debug('Response status cookies: {}'.format(r.cookies))
+    log.debug('Response headers: {}'.format(r.headers))
+    log.debug('Response content: {}'.format(r.content))
+
+    parser = MyHTMLParser()
+    parser.feed(r.content)
     # # print parser.handle_starttag(tag='td', attrs=[('class', 'reportRowBody')])
-    with open('C:\\users\\ricks\\PycharmProjects\\ebayscraper\\ebayscraper\\tests\\TL_Html.txt', 'r') as infile:
-        sample_html = infile.read()
+    # with open('C:\\users\\ricks\\PycharmProjects\\ebayscraper\\ebayscraper\\tests\\TL_Html.txt', 'r') as infile:
+        # sample_html = infile.read()
 
-    # log.info('Table Data: {}'.format(parser.table_data))
-
+    for thing in parser.table_data:
+        print thing
+    log.info('Table Data: {}'.format(parser.table_data))
+    # log.info('Table data: {}'.format(sample_html))
     # for item in parser.table_data:
         # print item[1]
 

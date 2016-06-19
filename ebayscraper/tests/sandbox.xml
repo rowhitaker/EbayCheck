@@ -1,15 +1,132 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<eBay>
-    <EBayTime>2016-06-18 01:11:33</EBayTime>
-    <Errors>
-        <Error>
-            <Code>2</Code>
-            <ErrorClass>RequestError</ErrorClass>
-            <SeverityCode>1</SeverityCode>
-            <Severity>SeriousError</Severity>
-            <Line>0</Line>
-            <Column>0</Column>
-            <ShortMessage><![CDATA[ Unsupported verb. ]]></ShortMessage>
-        </Error>
-    </Errors>
-</eBay>
+C:\Users\ricks\PycharmProjects\EbayScraper\ebayscraper\Scripts\python.exe C:/Users/ricks/PycharmProjects/EbayScraper/ebayscraper/EbayApi/ebayapi.py
+        full get url: http://open.api.ebay.com/shopping?callname=FindProducts&responseencoding=XML&appid=RickyWhi-EbayChec-PRD-65a6153ed-82a69392&siteid=0&version=525&QueryKeywords=harry%20potter&AvailableItemsOnly=true&MaxEntries=2
+        <?xml version="1.0" encoding="UTF-8"?>
+
+<FindProductsResponse xmlns="urn:ebay:apis:eBLBaseComponents">
+    <Timestamp>2016-06-18T22:07:51.607Z</Timestamp>
+    <Ack>Success</Ack>
+    <Build>E957_CORE_APILW2_17860840_R1</Build>
+    <Version>957</Version>
+    <ApproximatePages>870</ApproximatePages>
+    <MoreResults>true</MoreResults>
+    <PageNumber>1</PageNumber>
+    <Product>
+        <DomainName>DVDs</DomainName>
+        <DetailsURL>http://syicatalogs.ebay.com/ws/eBayISAPI.dll?PageSyiProductDetails&amp;IncludeAttributes=1&amp;ShowAttributesTable=1&amp;ProductMementoString=125174:2:1049:4276619924:804365794:ecba159499b2d5a7769a3990aa7af455:1:1:1:5000000672733</DetailsURL>
+        <DisplayStockPhotos>true</DisplayStockPhotos>
+        <ProductID type="Reference">110258144</ProductID>
+        <ProductID type="UPC">883929182879</ProductID>
+        <ItemSpecifics>
+            <NameValueList>
+                <Name>Movie Rating</Name>
+                <Value>PG-13 (MPAA)</Value>
+            </NameValueList>
+            <NameValueList>
+                <Name>Work Name</Name>
+                <Value>Harry Potter: Complete 8-Film Collection</Value>
+            </NameValueList>
+            <NameValueList>
+                <Name>Format</Name>
+                <Value>DVD</Value>
+            </NameValueList>
+        </ItemSpecifics>
+        <ReviewCount>651</ReviewCount>
+        <StockPhotoURL>http://i.ebayimg.com/00/$(KGrHqV,!g0E6ZCwQ)wpBOuWbUNB,g~~_6.JPG?set_id=89040003C1</StockPhotoURL>
+        <Title>Harry Potter: Complete 8-Film Collection (DVD, 2011, 8-Disc Set)</Title>
+    </Product>
+    <Product>
+        <DomainName>DVDs</DomainName>
+        <DetailsURL>http://syicatalogs.ebay.com/ws/eBayISAPI.dll?PageSyiProductDetails&amp;IncludeAttributes=1&amp;ShowAttributesTable=1&amp;ProductMementoString=125174:2:1049:4276619923:806089153:d3fddc50701b6276350a54e4a70aa5a5:1:1:1:5000000672734</DetailsURL>
+        <DisplayStockPhotos>true</DisplayStockPhotos>
+        <ProductID type="Reference">110349063</ProductID>
+        <ProductID type="UPC">883929182886</ProductID>
+        <ItemSpecifics>
+            <NameValueList>
+                <Name>Movie Rating</Name>
+                <Value>PG-13 (MPAA)</Value>
+            </NameValueList>
+            <NameValueList>
+                <Name>Work Name</Name>
+                <Value>Harry Potter: Complete 8-Film Collection</Value>
+            </NameValueList>
+            <NameValueList>
+                <Name>Format</Name>
+                <Value>Blu-ray Disc</Value>
+            </NameValueList>
+        </ItemSpecifics>
+        <ReviewCount>70</ReviewCount>
+        <StockPhotoURL>http://i.ebayimg.com/00/$(KGrHqR,!igE6M5wILm(BOuWZc0bjg~~_6.JPG?set_id=89040003C1</StockPhotoURL>
+        <Title>Harry Potter: Complete 8-Film Collection (Blu-ray Disc, 2011, 8-Disc Set)</Title>
+    </Product>
+    <TotalProducts>1739</TotalProducts>
+</FindProductsResponse>
+
+        {'X-EBAY-REQUEST-ID': '155658e4-8d10-a2b5-7392-fa12adb85440!shopping!10.43.87.57!esbshopping[]', 'X-EBAY-API-BUILD-TAG': 'E957_CORE_APILW2_17860840_R1', 'Transfer-Encoding': 'chunked', 'X-EBAY-API-POOL-NAME': '___cDRidW9rdDdlaHFg', 'Expires': 'Sat, 25 Dec 1999 00:00:00 GMT', 'Server': 'Apache-Coyote/1.1', 'Last-Modified': 'Sat, 18 Jun 2016 22:07:51 GMT', 'Connection': 'keep-alive', 'X-EBAY-API-SERVER-NAME': '___ZW9nNGQ3MWYrNDdnZygyNSg+OyszNy0wPz07NT43', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Date': 'Sat, 18 Jun 2016 22:07:51 GMT', 'GUID': '155658e4-8d10-a2b5-7392-fa12adb85440', 'Content-Type': 'text/xml;charset=utf-8'}
+<RequestsCookieJar[]>
+        200
+        <?xml version="1.0" encoding="UTF-8"?>
+
+<FindProductsResponse xmlns="urn:ebay:apis:eBLBaseComponents">
+<Timestamp>2016-06-18T22:07:51.607Z</Timestamp>
+<Ack>Success</Ack>
+<Build>E957_CORE_APILW2_17860840_R1</Build>
+<Version>957</Version>
+<ApproximatePages>870</ApproximatePages>
+<MoreResults>true</MoreResults>
+<PageNumber>1</PageNumber>
+<Product>
+    <DomainName>DVDs</DomainName>
+    <DetailsURL>http://syicatalogs.ebay.com/ws/eBayISAPI.dll?PageSyiProductDetails&amp;IncludeAttributes=1&amp;ShowAttributesTable=1&amp;ProductMementoString=125174:2:1049:4276619924:804365794:ecba159499b2d5a7769a3990aa7af455:1:1:1:5000000672733</DetailsURL>
+    <DisplayStockPhotos>true</DisplayStockPhotos>
+    <ProductID type="Reference">110258144</ProductID>
+    <ProductID type="UPC">883929182879</ProductID>
+    <ItemSpecifics>
+        <NameValueList>
+            <Name>Movie Rating</Name>
+            <Value>PG-13 (MPAA)</Value>
+        </NameValueList>
+        <NameValueList>
+            <Name>Work Name</Name>
+            <Value>Harry Potter: Complete 8-Film Collection</Value>
+        </NameValueList>
+        <NameValueList>
+            <Name>Format</Name>
+            <Value>DVD</Value>
+        </NameValueList>
+    </ItemSpecifics>
+    <ReviewCount>651</ReviewCount>
+    <StockPhotoURL>http://i.ebayimg.com/00/$(KGrHqV,!g0E6ZCwQ)wpBOuWbUNB,g~~_6.JPG?set_id=89040003C1</StockPhotoURL>
+    <Title>Harry Potter: Complete 8-Film Collection (DVD, 2011, 8-Disc Set)</Title>
+</Product>
+<Product>
+    <DomainName>DVDs</DomainName>
+    <DetailsURL>http://syicatalogs.ebay.com/ws/eBayISAPI.dll?PageSyiProductDetails&amp;IncludeAttributes=1&amp;ShowAttributesTable=1&amp;ProductMementoString=125174:2:1049:4276619923:806089153:d3fddc50701b6276350a54e4a70aa5a5:1:1:1:5000000672734</DetailsURL>
+    <DisplayStockPhotos>true</DisplayStockPhotos>
+    <ProductID type="Reference">110349063</ProductID>
+    <ProductID type="UPC">883929182886</ProductID>
+    <ItemSpecifics>
+        <NameValueList>
+            <Name>Movie Rating</Name>
+            <Value>PG-13 (MPAA)</Value>
+        </NameValueList>
+        <NameValueList>
+            <Name>Work Name</Name>
+            <Value>Harry Potter: Complete 8-Film Collection</Value>
+        </NameValueList>
+        <NameValueList>
+            <Name>Format</Name>
+            <Value>Blu-ray Disc</Value>
+        </NameValueList>
+    </ItemSpecifics>
+    <ReviewCount>70</ReviewCount>
+    <StockPhotoURL>http://i.ebayimg.com/00/$(KGrHqR,!igE6M5wILm(BOuWZc0bjg~~_6.JPG?set_id=89040003C1</StockPhotoURL>
+    <Title>Harry Potter: Complete 8-Film Collection (Blu-ray Disc, 2011, 8-Disc Set)</Title>
+</Product>
+<TotalProducts>1739</TotalProducts>
+</FindProductsResponse>
+
+        {'X-EBAY-REQUEST-ID': '155658e4-8d10-a2b5-7392-fa12adb85440!shopping!10.43.87.57!esbshopping[]', 'X-EBAY-API-BUILD-TAG': 'E957_CORE_APILW2_17860840_R1', 'Transfer-Encoding': 'chunked', 'X-EBAY-API-POOL-NAME': '___cDRidW9rdDdlaHFg', 'Expires': 'Sat, 25 Dec 1999 00:00:00 GMT', 'Server': 'Apache-Coyote/1.1', 'Last-Modified': 'Sat, 18 Jun 2016 22:07:51 GMT', 'Connection': 'keep-alive', 'X-EBAY-API-SERVER-NAME': '___ZW9nNGQ3MWYrNDdnZygyNSg+OyszNy0wPz07NT43', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Date': 'Sat, 18 Jun 2016 22:07:51 GMT', 'GUID': '155658e4-8d10-a2b5-7392-fa12adb85440', 'Content-Type': 'text/xml;charset=utf-8'}
+<RequestsCookieJar[]>
+        200
+
+        Process finished with exit code 0
