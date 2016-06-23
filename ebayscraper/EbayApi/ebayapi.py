@@ -1,53 +1,34 @@
+# -*- coding: utf-8 -*-
 import requests
+import json
 
-
-app_id = 'RickyWhi-EbayChec-SBX-55a63948a-3a217a11'
+app_id = 'RickyWhi-EbayChec-PRD-65a6153ed-82a69392'
 dev_id = 'c82144dc-8041-480e-9b5e-2d8d4c67ef09'
 cert_id = 'SBX-5a63948ad0ad-8f6a-4ceb-8093-316a'
 
-# base_url = 'http://open.api.ebay.com/shopping'
-base_url = 'https://api.sandbox.ebay.com/ws/api.dll'
-response_encoding = 'XML'  # also JSON, SOAP
+header_dict = {'X-EBAY-SOA-SECURITY-APPNAME': app_id,
+               'X-EBAY-SOA-OPERATION-NAME': 'findItemsByKeywords',
+               'X-EBAY-SOA-REQUEST-DATA-FORMAT': 'JSON',
+               'X-EBAY-SOA-RESPONSE-DATA-FORMAT': 'JSON',
+               'X-EBAY-SOA-SERVICE-VERSION': '1.0.0'}
 
-full_get_url = '{0}/shopping?callname=FindProducts&responseencoding={1}&appid={2}&siteid=0&version=525&QueryKeywords=harry%20potter&MaxEntries=2'.format(base_url, response_encoding, app_id)
+variable_post_url = 'http://svcs.ebay.com/services/search/FindingService/v1'
 
-full_get_url = 'http://open.api.ebay.com/shopping?callname=FindProducts&responseencoding=XML&appid=RickyWhi-EbayChec-PRD-65a6153ed-82a69392&siteid=0&version=525&QueryKeywords=harry%20potter&AvailableItemsOnly=true&MaxEntries=2'
-print 'full get url: {}'.format(full_get_url)
+final_request_dict = {'jsonns.xsi': 'http://www.w3.org/2001/XMLSchema-instance',
+                      'jsonns.xs': 'http://www.w3.org/2001/XMLSchema',
+                      'jsonns.tns': 'http://www.ebay.com/marketplace/search/v1/services',
+                      'tns.findItemsByKeywordsRequest': {'keywords': 'harry potter phoenix',
+                                                         'paginationInput': {'entriesPerPage': 50,
+                                                                             'pageNumber': 2}}}
 
-r = requests.get(full_get_url)
+body = json.dumps(final_request_dict)
 
+s = requests.Session()
+s.headers.update(header_dict)
+r = s.post(url=variable_post_url, data=body)
 
-'''
+return_json = json.loads(r.content)
 
-http://open.api.ebay.com/shopping?callname=FindProducts
-responseencoding=XML
-appid=YourAppIDHere
-siteid=0
-version=525
-QueryKeywords=harry%20potter
-AvailableItemsOnly=true
-MaxEntries=2
-'''
+return_dict = return_json['findItemsByKeywordsResponse'][0]
 
-print r.content
-print r.headers
-print r.cookies
-print r.status_code
-
-
-body_xml = """
-<?xml version="1.0" encoding="utf-8"?>
-<FindProductsRequest xmlns="urn:ebay:apis:eBLBaseComponents">
-  <QueryKeywords>Harry Potter</QueryKeywords>
-</FindProductsRequest>
-"""
-
-s = requests.post(url=base_url, data=body_xml)
-
-print r.content
-print r.headers
-print r.cookies
-print r.status_code
-
-
-
+print return_dict

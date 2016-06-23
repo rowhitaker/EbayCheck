@@ -10,16 +10,13 @@ def archive_files():
     and archive any folders older than yesterday
     """
     # TODO: Add a configuration file for these variables
+    root_dir = 'C:\\Users\\ricks\\PycharmProjects\\EbayScraper\\ebayscraper'
     archive_dir_list = ['Logs']
-    archive_extension_list = ['.log']
+    archive_extension_list = ['log']
     archive_path = 'Logs\\Archive'
-    archive_days_to_save = 7
+    archive_days_to_save = 1
 
-    # log = logger.build_logger(name='archiver', level='INFO')
-    # log.set_step('archive files')
-    #
-    # log.info('Directories to archive: {}'.format(archive_dir_list))
-    # log.info('Extensions to archive: {}'.format(archive_extension_list))
+    archive_path = os.path.join(root_dir, archive_path)
 
     if not os.path.isdir(archive_path):
         os.mkdir(archive_path)
@@ -30,7 +27,7 @@ def archive_files():
     oldest_log_date = ((DT.strptime(date, date_format)) - timedelta(archive_days_to_save)).strftime(date_format)
 
     for directory in archive_dir_list:
-        full_path = os.path.join(os.getcwd(), directory)
+        full_path = os.path.join(root_dir, directory)
         for file_extension in archive_extension_list:
             for this_file in glob.glob(os.path.join(full_path, '*.{}'.format(file_extension))):
                 file_mod_time = DT.fromtimestamp(os.path.getmtime(this_file)).strftime(date_format)
