@@ -5,3 +5,5 @@ sandbox.*
 *.pyc
 .idea
 *.json
+Lib\*
+Logs\*

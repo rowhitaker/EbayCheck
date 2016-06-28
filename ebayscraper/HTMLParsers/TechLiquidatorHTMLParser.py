@@ -37,4 +37,4 @@ class TLHTMLParser(HTMLParser):
 
         for template_index in xrange(8):
             new_data_key = template[template_index][1]
-            self.new_data[new_data_key] = self.new_data_list.pop()
+            self.new_data[new_data_key] = self.new_data_list.pop().replace('{amp}', '&')

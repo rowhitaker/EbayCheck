@@ -6,6 +6,7 @@ import archiver
 
 
 def build_logger(name, level):
+    print 'builing a logger like whoa!'
     # archive previous logs
     archiver.archive_files()
 

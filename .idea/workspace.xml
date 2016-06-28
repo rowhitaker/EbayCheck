@@ -2,13 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d62d2f4d-bba4-440f-9323-287d0f48156b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/EbayScraper.iml" afterPath="$PROJECT_DIR$/.idea/EbayScraper.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_171518073000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_171952415000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_172844825000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_172911670000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_173009974000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_173032579000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_173245475000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_173516148000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_174103414000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_181441190000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_185909579000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_190420009000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_190455377000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_190622789000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160617_193535954000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_001922238000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_002004683000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_002103801000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_002158783000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_002227873000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174153554000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174226757000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174234954000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174404154000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174507389000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174731852000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174904596000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_174926775000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160618_175354200000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160620_133739884000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_182623636000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_184120219000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_184559185000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_184625230000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_184644695000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190051463000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190117076000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190131815000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190359190000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190508904000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190543751000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190713392000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190723314000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_190748028000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_191054699000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_191611316000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_191913803000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_192015483000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_192609580000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_192712668000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_193130167000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_193418973000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_200839512000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_200901142000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_201105815000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_201507178000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_201531566000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_201545226000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_201555378000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_202017788000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_221250292000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_221606869000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_222213627000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_223006134000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_223043937000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_224205651000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_224454744000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_224713283000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_224750870000.log.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ebayscraper/Logs/Archive/EbayScraper_20160622_235713731000.log.gz" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py" afterPath="$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py" afterPath="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py" afterPath="$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py" afterPath="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/Test/Scratch.py" afterPath="$PROJECT_DIR$/ebayscraper/Test/Scratch.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/ebaychecker.py" afterPath="$PROJECT_DIR$/ebayscraper/ebaychecker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/tests/sandbox.xml" afterPath="$PROJECT_DIR$/ebayscraper/tests/sandbox.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ebayscraper/pip-selfcheck.json" afterPath="$PROJECT_DIR$/ebayscraper/pip-selfcheck.json" />
     </list>
     <ignored path="EBayScraper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,134 +92,81 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/EbayScraper$ebaychecker.coverage" NAME="ebaychecker Coverage Results" MODIFIED="1466662703816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper" />
+    <SUITE FILE_PATH="coverage/EbayScraper$ebaychecker.coverage" NAME="ebaychecker Coverage Results" MODIFIED="1467149531310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper" />
     <SUITE FILE_PATH="coverage/EbayScraper$archiver.coverage" NAME="archiver Coverage Results" MODIFIED="1466662517780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver" />
     <SUITE FILE_PATH="coverage/EbayScraper$ebayscraper.coverage" NAME="ebayscraper Coverage Results" MODIFIED="1466210135249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper" />
-    <SUITE FILE_PATH="coverage/EbayScraper$Scratch.coverage" NAME="Scratch Coverage Results" MODIFIED="1466652327115" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper/Test" />
-    <SUITE FILE_PATH="coverage/EbayScraper$ebayapi.coverage" NAME="ebayapi Coverage Results" MODIFIED="1466636794153" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper/EbayApi" />
+    <SUITE FILE_PATH="coverage/EbayScraper$Scratch.coverage" NAME="Scratch Coverage Results" MODIFIED="1467148263241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper/Test" />
+    <SUITE FILE_PATH="coverage/EbayScraper$ebayapi.coverage" NAME="ebayapi Coverage Results" MODIFIED="1467150579264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper/EbayApi" />
     <SUITE FILE_PATH="coverage/EBayScraper$ebayscraper.coverage" NAME="ebayscraper Coverage Results" MODIFIED="1466200443894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ebayscraper" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-            <file leaf-file-name="sandbox.xml" pinned="true" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/ebayscraper/tests/sandbox.xml">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="0">
-                    <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="EBayScraper" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Scratch.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/Test/Scratch.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ebayapi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
-              <folding>
-                <element signature="e#24#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ebaychecker.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="archiver.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-              <folding>
-                <element signature="e#0#46#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TechLiquidatorHTMLParser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+          <file leaf-file-name="ebaychecker.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="812">
+                  <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
+                  <folding>
+                    <element signature="e#0#15#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Scratch.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ebayscraper/Test/Scratch.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="66">
+                  <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+          <file leaf-file-name="ebayapi.py" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="626">
+                  <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+                  <folding>
+                    <element signature="e#24#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TechLiquidatorHTMLParser.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="890">
+                  <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -162,19 +179,26 @@
         <option value="$PROJECT_DIR$/ebayscraper/logger/__init__.py" />
         <option value="$PROJECT_DIR$/ebayscraper/logger/logger_and_archiver.py" />
         <option value="$PROJECT_DIR$/ebayscraper/logger/archiver.py" />
-        <option value="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py" />
         <option value="$PROJECT_DIR$/ebayscraper/ebayscraper.py" />
         <option value="$PROJECT_DIR$/ebayscraper/ebayApi/__init__.py" />
         <option value="$PROJECT_DIR$/ebayscraper/ebayApi/EbayApi.py" />
         <option value="$PROJECT_DIR$/ebayscraper/tests/template.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/ebayscraper/tests/sandbox.xml" />
-        <option value="$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py" />
-        <option value="$PROJECT_DIR$/ebayscraper/Test/Scratch.py" />
         <option value="$PROJECT_DIR$/ebayscraper/MyHTMLParser/MyHTMLParser.py" />
-        <option value="$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py" />
-        <option value="$PROJECT_DIR$/ebayscraper/ebaychecker.py" />
         <option value="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/layout.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/url_entry.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/input.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/display_results.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/input_url.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/error.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py" />
+        <option value="$PROJECT_DIR$/ebayscraper/templates/login.html" />
+        <option value="$PROJECT_DIR$/ebayscraper/Test/Scratch.py" />
+        <option value="$PROJECT_DIR$/ebayscraper/ebaychecker.py" />
+        <option value="$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py" />
+        <option value="$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py" />
       </list>
     </option>
   </component>
@@ -215,87 +239,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ebayscraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ebayscraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoggerAndArchiver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EbayScraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ebayscraper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HTMLParsers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ebayscraper/Lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ebayscraper/Scripts" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
-  <component name="RunManager" selected="Python.ebaychecker">
+  <component name="RunManager" selected="Python.ebayapi">
     <configuration default="false" name="ebayscraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -603,10 +562,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ebaychecker" />
-        <item index="1" class="java.lang.String" itemvalue="Python.archiver" />
+        <item index="0" class="java.lang.String" itemvalue="Python.ebayapi" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ebaychecker" />
         <item index="2" class="java.lang.String" itemvalue="Python.Scratch" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ebayapi" />
+        <item index="3" class="java.lang.String" itemvalue="Python.archiver" />
         <item index="4" class="java.lang.String" itemvalue="Python.ebayscraper" />
       </list>
     </recent_temporary>
@@ -631,17 +590,17 @@
     <frame x="-13" y="-13" width="2887" height="2026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19437432" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2152903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864377" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32788733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3995498" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39943662" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -659,9 +618,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864377" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32788733" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.56509197" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2152903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -691,21 +650,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -713,140 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/Test/Scratch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1749">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/tests/sandbox.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3531">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,7 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -908,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -953,38 +763,10 @@
     <entry file="file://$PROJECT_DIR$/ebayscraper/logger/__init__.py" />
     <entry file="file://$PROJECT_DIR$/ebayscraper/logger/logger_and_archiver.py" />
     <entry file="file://$PROJECT_DIR$/ebayscraper/logger/archiver.py" />
-    <entry file="file://$PROJECT_DIR$/ebayscraper/Logs/EbayScraper_20160617_171952415000.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/Logs/EbayScraper_20160617_174103414000.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250945">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Logs/EbayScraper_20160617_171952415000.log" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Logs/EbayScraper_20160617_174103414000.log" />
     <entry file="file://$PROJECT_DIR$/ebayscraper/ebayscraper.py" />
     <entry file="file://$PROJECT_DIR$/ebayscraper/tests/template.xml" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/pip/_vendor/requests/sessions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -992,72 +774,174 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/MyHTMLParser/MyHTMLParser.py" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ebayscraper/tests/sandbox.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="21" column="95" selection-start-line="21" selection-start-column="95" selection-end-line="21" selection-end-column="95" />
-          <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/Test/Scratch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/MyHTMLParser/MyHTMLParser.py">
+    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="28" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
+          <caret line="0" column="25" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/show_entries.html" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/url_entry.html" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/input.html" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/add_image.html" />
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/input_url.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py">
+    <entry file="file://$PROJECT_DIR$/ebayscraper/pip-selfcheck.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/requests/sessions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16302">
+          <caret line="517" column="68" selection-start-line="517" selection-start-column="68" selection-end-line="517" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/display_results.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/flask/helpers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6039">
+          <caret line="192" column="4" selection-start-line="192" selection-start-column="4" selection-end-line="192" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/flask/templating.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3828">
+          <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="120" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="842" column="20" selection-start-line="842" selection-start-column="20" selection-end-line="842" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Lib/site-packages/werkzeug/serving.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1535">
+          <caret line="561" column="4" selection-start-line="561" selection-start-column="4" selection-end-line="561" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="911">
+          <caret line="1522" column="47" selection-start-line="1513" selection-start-column="3" selection-end-line="1522" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/error.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/logger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="621">
+          <caret line="57" column="26" selection-start-line="44" selection-start-column="4" selection-end-line="57" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#14#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/Test/Scratch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="2" column="41" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/HTMLParsers/TechLiquidatorHTMLParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="890">
+          <caret line="39" column="86" selection-start-line="39" selection-start-column="86" selection-end-line="39" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ebayscraper/EbayApi/ebayapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="626">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ebayscraper/ebaychecker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="812">
+          <caret line="100" column="62" selection-start-line="100" selection-start-column="62" selection-end-line="100" selection-end-column="62" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ebayscraper/LoggerAndArchiver/archiver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
