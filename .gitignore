@@ -1,9 +1,13 @@
-tests\*
-Test\*
+
 scratch.*
 sandbox.*
 *.pyc
 .idea
 *.json
-Lib\*
-Logs\*
+
+# folders
+Lib
+Logs
+Include
+tests
+Test
