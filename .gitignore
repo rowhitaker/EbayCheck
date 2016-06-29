@@ -6,8 +6,8 @@ sandbox.*
 *.json
 
 # folders
-ebayscraper\Lib
-ebayscraper\Logs
-ebayscraper\Include
-ebayscraper\tests
-ebayscraper\Test
+Lib
+Logs
+Include
+tests
+Test
