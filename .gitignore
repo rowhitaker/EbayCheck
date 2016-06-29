@@ -1,4 +1,4 @@
-
+# file exts
 scratch.*
 sandbox.*
 *.pyc
@@ -6,8 +6,8 @@ sandbox.*
 *.json
 
 # folders
-Lib
-Logs
-Include
-tests
-Test
+ebayscraper\Lib
+ebayscraper\Logs
+ebayscraper\Include
+ebayscraper\tests
+ebayscraper\Test
