@@ -5,6 +5,7 @@ import logging
 from HTMLParsers import TechLiquidatorHTMLParser as TLHTML
 import os
 from datetime import datetime as DT
+import time
 from EbayApi import ebayapi
 
 # create our little application :)
@@ -53,7 +54,7 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/input_url', methods=['GET', 'POST'])
+@app.route('/input_url', methods=['GET'])
 def input_url():
     set_step(step_name='input url', method=request.method)
     if not session.get('logged_in'):
@@ -96,9 +97,18 @@ def display_results():
     app.logger.debug('Table Data: {}'.format(parser.table_data))
 
     my_ebay_api = ebayapi.EbayItemFinder()
+    my_ebay_api.item_list = parser.table_data
+    my_ebay_api.make_requests()
+    table_data = my_ebay_api.table_data
+    app.logger.debug('Here is our return table data: {}'.format(my_ebay_api.table_data))
+
+    return render_template('display_results.html', table_data=table_data)
 
 
-    return render_template('display_results.html', entries=request_url)
+@app.route('/shutdown', methods=['GET'])
+def shutdown():
+    shutdown_server()
+    return 'Sever shutdown'
 
 
 def error_return(error_msg):
@@ -112,12 +122,7 @@ def shutdown_server():
     if func is None:
         raise RuntimeError('Not running with the Werkzeug Server')
     func()
-
-
-@app.route('/shutdown', methods=['GET'])
-def shutdown():
-    shutdown_server()
-    return 'Server shutting down...'
+    close()
 
 
 def set_step(step_name, method):
@@ -138,12 +143,12 @@ def close():
     logging.shutdown()
 
 
-if __name__ == '__main__':
+def main():
     log_dir = 'Logs'
 
     date_format = '%Y%m%d'
-    date = DT.now().strftime(date_format)
-    time = DT.now().strftime('%H%M%S%f')
+    current_date = DT.now().strftime(date_format)
+    current_time = DT.now().strftime('%H%M%S%f')
 
     # create our log folders if they don't already exist
     if not os.path.isdir(log_dir):
@@ -151,7 +156,7 @@ if __name__ == '__main__':
 
     # build logger
     name = 'EbayChecker'
-    file_hdlr = logging.FileHandler('./{}/{}_{}_{}.{}'.format(log_dir, name, date, time, 'log'))
+    file_hdlr = logging.FileHandler('./{}/{}_{}_{}.{}'.format(log_dir, name, current_date, current_time, 'log'))
     formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(message)s',
                                   datefmt='%Y%m%d_%H%M%S')
     file_hdlr.setLevel(logging.DEBUG)
@@ -160,3 +165,7 @@ if __name__ == '__main__':
     app.logger.addHandler(file_hdlr)
     app.logger.info('hello world')
     app.run(debug=True, host='127.0.0.1')
+
+if __name__ == '__main__':
+
+    main()

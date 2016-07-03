@@ -1,0 +1,46 @@
+{% block display_table %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='display_table.js') }}"></script>
+<form action="{{ url_for('input_url') }}" method=get class=add-entry>
+    <table>
+        <tr>
+            <td>Remove Listing</td>
+            <td>Title</td>
+            <td>Price</td>
+            <td>View Gallery</td>
+            <td>View Listing</td>
+        </tr>
+
+        <tr class=entries>
+
+        {% for data in table_data %}
+        <tr>
+            <td><input type="checkbox" class="remove_listing"></td>
+            <td>{{ data['title'] }}</td>
+            <td class="price">{{ '${:,.2f}'.format(data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</td>
+            <td><a href="{{ data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
+            <td><a href="{{ data['viewItemURL'] }}" target="_blank">View Listing</a></td>
+        <tr>
+        {% endfor %}
+
+        <tr>
+            <td></td>
+            <td>Total:</td>
+            <td id="total_price"></td>
+        </tr>
+    </table>
+
+    <input type=submit value=Back>
+    <input type="button" value="Reload" id="reload">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>
+</form>
+
+{% endblock %}

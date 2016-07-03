@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import requests
 import json
+import logging
+import time
 
 
 class EbayItemFinder(object):
@@ -22,51 +24,118 @@ class EbayItemFinder(object):
                                    'tns.findItemsByKeywordsRequest': {'keywords': 'harry potter phoenix',
                                                                       'paginationInput': {'entriesPerPage': 50,
                                                                                           'pageNumber': 2}}}
-        self.item_list = [
-            {'sku': '4447801', 'title': 'VZW IPHONE 6S 64GB SPACE GRAY', 'totalMsrp': '799.99', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '1', 'partNum': 'MKRY2LL/A', 'estMsrp': '799.99'},
-            {'sku': '4447901', 'title': 'Apple - iPhone 6s 64GB - Gold (Verizon Wireless)', 'totalMsrp': '799.99',
-             'brand': 'Apple', 'upc': '8884625006', 'qty': '1', 'partNum': 'MKT12LL/A', 'estMsrp': '799.99'},
-            {'sku': '4447902', 'title': 'VZW IPHONE 6S 64GB ROSE GOLD', 'totalMsrp': '3999.95', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '5', 'partNum': 'MKT22LL/A', 'estMsrp': '799.99'},
-            {'sku': '4447501', 'title': 'VZW IPHONE 6S 16GB SPACE GRAY', 'totalMsrp': '6299.91', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '9', 'partNum': 'MKRR2LL/A', 'estMsrp': '699.99'},
-            {'sku': '4447601', 'title': 'VZW IPHONE 6S 16GB  SILVER', 'totalMsrp': '1399.98', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '2', 'partNum': 'MKRT2LL/A', 'estMsrp': '699.99'},
-            {'sku': '4447700', 'title': 'VZW IPHONE 6S 16GB  GOLD', 'totalMsrp': '699.99', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '1', 'partNum': 'MKRW2LL/A', 'estMsrp': '699.99'},
-            {'sku': '4447701', 'title': 'VZW IPHONE 6S 16GB  ROSE GOLD', 'totalMsrp': '4199.94', 'brand': 'Apple',
-             'upc': '8884625006', 'qty': '6', 'partNum': 'MKRX2LL/A', 'estMsrp': '699.99'}]
+        # self.item_list = [{'sku': '4917304', 'title': 'SAMSUNG GEARS2 CLASSIC PREMIUM RS GLD', 'totalMsrp': '449.99',
+        #                    'brand': 'Samsung', 'upc': '8872761394', 'qty': '1', 'partNum': 'SM-R7320ZDAXAR',
+        #                    'estMsrp': '449.99'},
+        #                   {'sku': '4917304', 'title': 'SAMSUNG GEARS2 CLASSIC PREMIUM RS GLD', 'totalMsrp': '449.99',
+        #                    'brand': 'Samsung', 'upc': '8872761394', 'qty': '1', 'partNum': 'SM-R7320ZDAXAR',
+        #                    'estMsrp': '449.99'},
+        #                   {'sku': '4637900', 'title': 'VZW GEAR S2 CONNECTED/LTE, BLACK', 'totalMsrp': '349.99',
+        #                    'brand': 'Samsung', 'upc': '8872761245', 'qty': '1', 'partNum': 'SM-R730VZKAVZW',
+        #                    'estMsrp': '349.99'}, {'sku': '4472000',
+        #                                           'title': 'Samsung - Gear S2 Classic Smartwatch 40mm Stainless Steel - Black Leather',
+        #                                           'totalMsrp': '1049.97', 'brand': 'Samsung', 'upc': '8872761264',
+        #                                           'qty': '3', 'partNum': 'SM-R7320ZKAXAR', 'estMsrp': '349.99'},
+        #                   {'sku': '4471702',
+        #                    'title': 'Samsung - Gear S2 Smartwatch 42mm Stainless Steel - Black Elastomer',
+        #                    'totalMsrp': '2999.90', 'brand': 'Samsung', 'upc': '8872761228', 'qty': '10',
+        #                    'partNum': 'SM-R7200ZKAXAR', 'estMsrp': '299.99'}, {'sku': '4471900',
+        #                                                                        'title': 'Samsung - Gear S2 Smartwatch 42mm Stainless Steel - White Elastomer',
+        #                                                                        'totalMsrp': '299.99',
+        #                                                                        'brand': 'Samsung', 'upc': '8872761235',
+        #                                                                        'qty': '1', 'partNum': 'SM-R7200ZWAXAR',
+        #                                                                        'estMsrp': '299.99'}, {'sku': '4471900',
+        #                                                                                               'title': 'Samsung - Gear S2 Smartwatch 42mm Stainless Steel - White Elastomer',
+        #                                                                                               'totalMsrp': '899.97',
+        #                                                                                               'brand': 'Samsung',
+        #                                                                                               'upc': '8872761235',
+        #                                                                                               'qty': '3',
+        #                                                                                               'partNum': 'SM-R7200ZWAXAR',
+        #                                                                                               'estMsrp': '299.99'}]
+        self.item_list = []
         self.current_item = {}
         self.body = None
         self.return_data = []
+        self.final_request_dict_by_part_num = {}
+        self.table_data = []
 
-    def build_json_request_dict(self):
-        item_desc = '{} {}'.format(self.current_item.get('brand'), self.current_item.get('title'))
+
+    def build_json_request_dict_by_part_num(self):
+        item_desc = self.current_item.get('partNum')
         current_request_dict = {'keywords': item_desc,
-                                'paginationInput': {'entriesPerPage': 50,
+                                'paginationInput': {'entriesPerPage': 100,
                                                     'pageNumber': 2}}
-        self.final_request_dict['tns.findItemsByKeywordsRequest'] = current_request_dict
+        self.final_request_dict_by_part_num['tns.findItemsByKeywordsRequest'] = current_request_dict
+
+    def make_request(self, current_item=None):
+        s = requests.Session()
+        s.headers.update(self.header_dict)
+
+        self.build_json_request_dict_by_part_num()
+        body = json.dumps(self.final_request_dict_by_part_num)
+
+        r = s.post(url=self.variable_post_url, json=body)
+
 
     def make_requests(self):
         s = requests.Session()
         s.headers.update(self.header_dict)
-
         for self.current_item in self.item_list:
-            self.build_json_request_dict()
-            body = json.dumps(self.final_request_dict)
+            new_table_data = {}
+            self.build_json_request_dict_by_part_num()
+            body = json.dumps(self.final_request_dict_by_part_num)
+
+            '''
+            response = requests.get(url)
+         while response.status_code != 200 and number_retries < max_retries:
+            time.sleep(delay)
+            response = requests.get(url)
+            number_retries += 1
+        response.raise_for_sta
+
+            '''
 
             r = s.post(url=self.variable_post_url, data=body)
-
+            i = 0
+            while r.status_code != 200 and i < 10:
+                time.sleep(10)
+                r = s.post(url=self.variable_post_url, data=body)
+                i += 1
             return_json = json.loads(r.content)
-
+            print 'return json: {}'.format(return_json)
             return_dict = return_json['findItemsByKeywordsResponse'][0]
+            print 'return dict: {}'.format(return_dict)
+            print 'total entries (from pagination output): {}'.format(return_dict['paginationOutput'][0]['totalEntries'])
+                # if return_dict['searchResult'][0]['item'][0]:
+                # return_dict['searchResult'][0]['item'][0]
+            if 'item' in return_dict['searchResult'][0].keys():
+                print '@count: {}'.format(return_dict['searchResult'][0].keys())
 
+                try:
+                    for item in return_dict['searchResult'][0]['item']:
 
-            print return_dict['paginationOutput'][0]['totalEntries']
-            for this, that in return_dict.iteritems():
-                print this, that
-            # print return_dict.get('itemSearchURL')
+                        for key, value in item.iteritems():
+                            new_table_data[key] = (value[0])
+                            # self.table_data.append((key, value[0]))
+                except Exception, e:
+                    print 'fuck\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
+                    continue
+            else:
+                print 'this entry has no... entries'
+                print return_dict['searchResult'][0]['@count']
+
+            if len(new_table_data) > 0:
+                self.table_data.append(new_table_data)
+
+        for item in self.table_data:
+            print 'here is what were giving back: {}'.format(item)
+
+                    # for name, value in return_dict.iteritems():
+            #     if name == 'searchResult':
+            #         for item in value[0]['item']:
+            #             for this, that in item.iteritems():
+            #                 print this, that
+                            # print return_dict.get('itemSearchURL')
 
 
 if __name__ == "__main__":
