@@ -78,3 +78,18 @@ img {
     width: 500px;
     height: 500px;
 }
+
+input[type="number"] {
+    width: 40px;
+}
+
+input[class="price"] {
+    border: none;
+    width: 75%
+}
+
+.fixed
+{
+    position: fixed;
+    top: 20px;
+}

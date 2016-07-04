@@ -6,6 +6,7 @@
     <table>
         <tr>
             <td>Remove Listing</td>
+            <td>Quantity</td>
             <td>Title</td>
             <td>Price</td>
             <td>View Gallery</td>
@@ -15,30 +16,41 @@
         <tr class=entries>
 
         {% for data in table_data %}
+        {% set id = data['id'] %}
         <tr>
             <td><input type="checkbox" class="remove_listing"></td>
-            <td>{{ data['title'] }}</td>
-            <td class="price">{{ '${:,.2f}'.format(data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</td>
+            <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
+            <input type="hidden" id="original_{{id}}" value="{{ data['parsed_data']['qty'] }}"> </td>
+            <td>{{ data['ebay_return_data']['title'] }}</td>
+            <td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['ebay_return_data']['sellingStatus']['currentPrice'][0]['__value__']|float) }}"></td>
             <td><a href="{{ data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
             <td><a href="{{ data['viewItemURL'] }}" target="_blank">View Listing</a></td>
         <tr>
         {% endfor %}
 
+        <br>
+        <br>
+
         <tr>
-            <td></td>
             <td>Total:</td>
+            <td></td>
+            <td></td>
             <td id="total_price"></td>
         </tr>
     </table>
 
+    <br>
+    <br>
+
     <input type=submit value=Back>
-    <input type="button" value="Reload" id="reload">
+    <input type="button" value="Reset" id="reset">
 
     <br>
     <br>
     <br>
     <br>
     <br>
+
 
     <img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>
 </form>

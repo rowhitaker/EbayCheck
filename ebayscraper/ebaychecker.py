@@ -3,10 +3,10 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
 import logging
 from HTMLParsers import TechLiquidatorHTMLParser as TLHTML
-import os
 from datetime import datetime as DT
-import time
 from EbayApi import ebayapi
+
+testing = True
 
 # create our little application :)
 app = Flask(__name__)
@@ -88,19 +88,23 @@ def display_results():
 
     app.logger.debug('Response status cookies: {}'.format(r.cookies))
     app.logger.debug('Response headers: {}'.format(r.headers))
-    app.logger.debug('Response content: {}'.format(r.content))
+    # app.logger.debug('Response content: {}'.format(r.content))  # the actual html, it's huge
 
     app.logger.info('Attempting to parse return HTML')
     parser = TLHTML.TLHTMLParser()
     parser.feed(r.content.replace('&', '{amp}'))
 
-    app.logger.debug('Table Data: {}'.format(parser.table_data))
+    app.logger.debug('Parsed data: {}'.format(parser.output_data))
 
+    p_data = {'parser.output_data': parser.output_data}
     my_ebay_api = ebayapi.EbayItemFinder()
-    my_ebay_api.item_list = parser.table_data
+    my_ebay_api.input_dict_list = parser.output_data
     my_ebay_api.make_requests()
-    table_data = my_ebay_api.table_data
-    app.logger.debug('Here is our return table data: {}'.format(my_ebay_api.table_data))
+    app.logger.debug('Output data from our Ebay Finder API: {}'.format(my_ebay_api.output_data))
+
+
+    table_data = my_ebay_api.output_data
+
 
     return render_template('display_results.html', table_data=table_data)
 
@@ -150,10 +154,6 @@ def main():
     current_date = DT.now().strftime(date_format)
     current_time = DT.now().strftime('%H%M%S%f')
 
-    # create our log folders if they don't already exist
-    if not os.path.isdir(log_dir):
-        os.mkdir(log_dir)
-
     # build logger
     name = 'EbayChecker'
     file_hdlr = logging.FileHandler('./{}/{}_{}_{}.{}'.format(log_dir, name, current_date, current_time, 'log'))
@@ -163,9 +163,11 @@ def main():
     file_hdlr.setFormatter(formatter)
 
     app.logger.addHandler(file_hdlr)
-    app.logger.info('hello world')
-    app.run(debug=True, host='127.0.0.1')
+    app.run(debug=True, host='0.0.0.0')
 
 if __name__ == '__main__':
 
-    main()
+    ip = '0.0.0.0'
+    if testing:
+        ip = '127.0.0.1'
+    app.run(debug=True, host=ip)
