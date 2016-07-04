@@ -3,7 +3,7 @@ import requests
 import json
 import time
 
-testing = False
+testing = True
 
 
 class EbayItemFinder(object):
@@ -23,8 +23,8 @@ class EbayItemFinder(object):
                                    'jsonns.xs': 'http://www.w3.org/2001/XMLSchema',
                                    'jsonns.tns': 'http://www.ebay.com/marketplace/search/v1/services',
                                    'tns.findItemsByKeywordsRequest': {'keywords': 'harry potter phoenix',
-                                                                      'paginationInput': {'entriesPerPage': 50,
-                                                                                          'pageNumber': 2}}}
+                                                                      'paginationInput': {'entriesPerPage': 100,
+                                                                                          'pageNumber': 1}}}
         self.input_dict_list = []
         self.current_item_id = 0
         self.current_parsed_data = {}
@@ -56,13 +56,12 @@ class EbayItemFinder(object):
         s = requests.Session()
         s.headers.update(self.header_dict)
         for current_item in self.input_dict_list:
+            new_output_data = []
             self.current_item_id = current_item['id']
+            print 'id: {}'.format(self.current_item_id)
             self.current_parsed_data = current_item['parsed_data']
-            new_output_data = {}
             self.build_json_request_dict_by_part_num()
             body = json.dumps(self.final_request_dict_by_part_num)
-            if testing:
-                body = json.dumps(self.final_request_dict)
 
             r = s.post(url=self.variable_post_url, data=body)
             i = 0
@@ -79,12 +78,14 @@ class EbayItemFinder(object):
             if 'item' in return_dict['searchResult'][0].keys():
                 print 'dict keys of this search result (probably item, @count): {}'.format(
                     return_dict['searchResult'][0].keys())
-
                 try:
                     for item in return_dict['searchResult'][0]['item']:
-
+                        print item
+                        current_item_data = {}
                         for key, value in item.iteritems():
-                            new_output_data[key] = (value[0])
+                            current_item_data[key] = value[0]
+                        new_output_data.append(current_item_data)
+
                 except Exception, e:
                     print 'serious error\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
                     continue
@@ -95,10 +96,13 @@ class EbayItemFinder(object):
             if len(new_output_data) > 0:
                 self.output_data.append({'id': self.current_item_id,
                                          'parsed_data': self.current_parsed_data,
-                                         'ebay_return_data': new_output_data})
+                                         'ebay_return_data': new_output_data,
+                                         'itemSearchURL': return_dict['itemSearchURL'][0]})
 
-        for item in self.output_data:
-            print 'here is what were giving back: {}'.format(item)
+
+        print 'here is what were giving back: {}'.format(self.output_data)
+        print 'here is the length were giving back: {}'.format(len(self.output_data))
+        time.sleep(5)
 
             # for name, value in return_dict.iteritems():
             #     if name == 'searchResult':

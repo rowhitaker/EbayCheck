@@ -9,27 +9,35 @@
             <td>Quantity</td>
             <td>Title</td>
             <td>Price</td>
-            <td>View Gallery</td>
+            <!--<td>View Gallery</td>-->
             <td>View Listing</td>
         </tr>
 
         <tr class=entries>
 
-        {% for data in table_data %}
-        {% set id = data['id'] %}
+            {% for data in table_data %}
+            {% set id = data['id'] %}
         <tr>
             <td><input type="checkbox" class="remove_listing"></td>
             <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
-            <input type="hidden" id="original_{{id}}" value="{{ data['parsed_data']['qty'] }}"> </td>
-            <td>{{ data['ebay_return_data']['title'] }}</td>
-            <td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['ebay_return_data']['sellingStatus']['currentPrice'][0]['__value__']|float) }}"></td>
-            <td><a href="{{ data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
-            <td><a href="{{ data['viewItemURL'] }}" target="_blank">View Listing</a></td>
-        <tr>
-        {% endfor %}
+                <input type="hidden" id="original_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
+            <td>{{ data['parsed_data']['title'] }}</td>
 
-        <br>
-        <br>
+            <td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['average_item_price']|float) }}">
+
+            <!--{% for ebay_return_data in data['ebay_return_data'] %}-->
+            <!--&lt;!&ndash;<td>{{ ebay_return_data['title'] }}</td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><a href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>&ndash;&gt;-->
+            <!--&lt;!&ndash;<td><a href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></td>&ndash;&gt;-->
+            <!--<td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}">-->
+            <!--</td>-->
+            <!--{% endfor %}-->
+
+            <td><a href="{{ data['itemSearchURL'] }}" target="_blank">View Listing</a></td>
+
+
+        <tr>
+            {% endfor %}
 
         <tr>
             <td>Total:</td>
