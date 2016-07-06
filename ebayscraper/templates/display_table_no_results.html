@@ -1,69 +1,94 @@
-{% block display_table_no_results %}
+{% block display_table %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='display_table.js') }}"></script>
-<form action="{{ url_for('input_url') }}" method=get class=add-entry>
-    <table>
-        <tr>
-             <td><h3>ID</h3></td>
-            <td><h3>Remove</h3></td>
-            <td><h3>Search By Desc</h3></td>
-            <td><h3>Quantity</h3></td>
-            <td><h3>Title</h3></td>
-            <td><h3>Part Number</h3></td>
-            <td><h3>Price</h3></td>
-            <!--<td><h3>View Gallery</h3><td>-->
-            <td><h3>View Listing</h3></td>
-        </tr>
-        {% for data in table_data %}
-        {% set id = data['id'] %}
-        {% if not data['ebay_return_data'] %}
-        <tr>
-            <td>{{ id }}</td>
-            <td><input type="checkbox" class="remove_listing"></td>
-            <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
-                <input type="hidden" id="original_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
-            <td>{{ data['parsed_data']['title'] }}</td>
-            <td>{{ data['parsed_data']['partNum'] }}</td>
+<table class="table">
+    <tr>
+        <td><h3>ID</h3></td>
+        <td><h3></h3></td>
+        <td><h3>QTY</h3></td>
+        <td><h3>Title</h3></td>
+        <td><h3>Search Method</h3></td>
+        <td><h3>Part Number</h3></td>
+        <td><h3>Price</h3></td>
+        <td><h3>Shipping</h3></td>
+        <td><h3># Items</h3><td>
+        <td><h3></h3></td>
+    </tr>
 
-            <td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['average_item_price']|float) }}">
+    <!--TODO put restriction here to push items less than 5 to the other table-->
 
-            <!--{% for ebay_return_data in data['ebay_return_data'] %}-->
-            <!--&lt;!&ndash;<td>{{ ebay_return_data['title'] }}</td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td><a href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>&ndash;&gt;-->
-            <!--&lt;!&ndash;<td><a href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></td>&ndash;&gt;-->
-            <!--<td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}">-->
-            <!--</td>-->
-            <!--{% endfor %}-->
+    {% for id, data in p_data['item_dicts_by_id'].iteritems() %}
+    {% set display_selection = data['display_selection'] %}
+    {% set item_count = data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] %}
+    {% if item_count < 5 %}
+    <tr class="entries" id="{{id}}">
+        <td>{{ id }}</td>
+        <td><input type="button" class="remove_listing" value="Remove"></td>
+        <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
+            <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
+        <td><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></td>
+        <td><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'][1] }} search_method"
+                   alt="{{id}}"></td>
+        <td><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></td>
 
-            <td><a href="{{ data.get('itemSearchURL') }}" target="_blank">View Listing</a></td>
-        <tr>
-          {% endif %}
+        <td>$<input class="price" id="price_{{id}}"
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price']|float) }}">
+        <td>$<input class="price" id="shipping_{{id}}"
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price']|float) }}">
+        <td>{{ data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] }}</td>
+        <td><a id="sub_data_{{id}}" class="view_sub_data">View Details</a></td>
+    </tr>
 
-        {% endfor %}
+    <tr class="hidden sub_data sub_data_{{id}}">
+        <td><h3></h3></td>
+        <td><h3></h3></td>
+        <td><h3></h3></td>
+        <td><h3>Title</h3></td>
+        <td><h3>Date Sold</h3></td>
+        <td><h3>Price</h3></td>
+        <td><h3>Shipping</h3></td>
+        <td><h3>Shipping Method</h3></td>
+        <td><h3>View Links</h3></td>
+        <td><h3></h3></td>
+    </tr>
+    {% for ebay_return_data in data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'] %}
 
-        <tr>
-            <td>Total:</td>
-            <td></td>
-            <td></td>
-            <td id="total_price"></td>
-        </tr>
-    </table>
+    <tr class="hidden sub_data sub_data_{{id}}">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{ ebay_return_data['title'] }}</td>
+        <td>{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</td>
+        <td>{{ '${:,.2f}'.format(ebay_return_data['shipping_cost']|float) }}</td>
+        <td>{{ ebay_return_data['shipping_method'] }}</td>
+        <td><a href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></td>
+        <td><a href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
 
-    <br>
-    <br>
-
-    <input type=submit value=Back>
-    <input type="button" value="Reset" class="reset">
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    </tr>
 
 
-    <!--<img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>-->
-</form>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td>Total Quantity:</td>
+        <td id="total_qty"></td>
+        <td></td>
+        <td>Total Price:</td>
+        <td id="total_price"></td>
+    </tr>
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--<img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>-->
 
 {% endblock %}

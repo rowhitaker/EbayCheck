@@ -1,0 +1,74 @@
+{% block display_table %}
+
+<div class="table">
+    <div class="div-table-row">
+        <div class="div-table-data"><h3>ID</h3></div>
+        <div class="div-table-data"><h3></h3></div>
+        <div class="div-table-data"><h3>QTY</h3></div>
+        <div class="div-table-data"><h3>Title</h3></div>
+        <div class="div-table-data"><h3>Search Method</h3></div>
+        <div class="div-table-data"><h3>Part Number</h3></div>
+        <div class="div-table-data"><h3>Price</h3></div>
+        <div class="div-table-data"><h3>Shipping</h3></div>
+        <div class="div-table-data"><h3># Items</h3><div class="div-table-data">
+        <div class="div-table-data"><h3>View Listing</h3></div>
+    </div>
+
+    <!--TODO put restriction here to push items less than 5 to the other table-->
+
+    {% for id, data in p_data['item_dicts_by_id'].iteritems() %}
+    {% set display_selection = data['display_selection'] %}
+    <div class="div-table-row entries" id="{{id}}">
+        <div class="div-table-data">{{ id }}</div>
+        <div class="div-table-data"><input type="button" class="remove_listing" value="Remove"></div>
+        <div class="div-table-data"><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
+            <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></div>
+        <div class="div-table-data"><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></div>
+        <div class="div-table-data"><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'][1] }} search_method"
+                   alt="{{id}}"></div>
+        <div class="div-table-data"><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></div>
+
+        <div class="div-table-data">$<input class="price" id="price_{{id}}"
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price']|float) }}">
+        <div class="div-table-data">$<input class="price" id="shipping_{{id}}"
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price']|float) }}">
+        <div class="div-table-data">{{ data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] }}</div>
+        <div class="div-table-data"><a href="{{ data.get('itemSearchURL') }}" target="_blank">View Listing</a></div>
+    </div>
+
+    <!--{% for ebay_return_data in data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'] %}-->
+    <!--<tr class="hidden">-->
+        <!--<div class="div-table-data">{{ ebay_return_data['title'] }}</div>-->
+        <!--<div class="div-table-data">{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</div>-->
+        <!--<div class="div-table-data">{{ '${:,.2f}'.format(ebay_return_data['shipping_cost']|float) }}</div>-->
+        <!--<div class="div-table-data">{{ ebay_return_data['shipping_method'] }}</div>-->
+        <!--<div class="div-table-data"><a href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></div>-->
+        <!--<div class="div-table-data"><a href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></div>-->
+    <!--</div>-->
+
+
+    <!--{% endfor %}-->
+    {% endfor %}
+
+
+    <div class="div-table-row">
+        <div class="div-table-data"></div>
+        <div class="div-table-data"></div>
+        <div class="div-table-data">Total Quantity:</div>
+        <div class="div-table-data" id="total_qty"></div>
+        <div class="div-table-data"></div>
+        <div class="div-table-data">Total Price:</div>
+        <div class="div-table-data" id="total_price"></div>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--<img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>-->
+
+{% endblock %}

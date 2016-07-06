@@ -10,7 +10,6 @@ from copy import deepcopy
 
 testing = True
 
-cached_page_data_by_url = {}
 
 p_data = {}
 p_data['item_dicts_by_id'] = {}
@@ -86,84 +85,92 @@ def display_results():
     p_data['request_url'] = request_url
     app.logger.info('The URL that was requested: {}'.format(request_url))
 
-    if reloading and cached_page_data_by_url.get(request_url):
-        app.logger.info('Hard reload requested, purging cached data')
-        cached_page_data_by_url.pop(request_url)
+    app.logger.info('We don\'t have this data cached, pulling fresh.')
+    app.logger.debug('Creating an HTTP requests Session')
+    s = requests.Session()
 
-    if cached_page_data_by_url.get(request_url) is None:
-        cached_page_data_by_url[request_url] = {}
+    try:
+        app.logger.info('Making our HTTP request')
+        r = s.get(request_url)
+    except Exception, e:
+        app.logger.error('Uh oh, failed to make our HTTP request')
+        app.logger.error('Error was: {}'.format(e))
+        return error_return(e)
 
-    if cached_page_data_by_url[request_url].get('item_dicts_by_id') is None:
-        app.logger.info('We don\'t have this data cached, pulling fresh.')
-        app.logger.debug('Creating an HTTP requests Session')
-        s = requests.Session()
+    app.logger.info('Made our HTTP Request, status code was: {}'.format(r.status_code))
 
-        try:
-            app.logger.info('Making our HTTP request')
-            r = s.get(request_url)
-        except Exception, e:
-            app.logger.error('Uh oh, failed to make our HTTP request')
-            app.logger.error('Error was: {}'.format(e))
-            return error_return(e)
+    if r.status_code != 200:
+        return error_return('Unable to successfully call "{}"'.format(request_url))
 
-        app.logger.info('Made our HTTP Request, status code was: {}'.format(r.status_code))
+    app.logger.debug('Response status cookies: {}'.format(r.cookies))
+    app.logger.debug('Response headers: {}'.format(r.headers))
+    # app.logger.debug('Response content: {}'.format(r.content))  # the actual html, it's huge
 
-        if r.status_code != 200:
-            return error_return('Unable to successfully call "{}"'.format(request_url))
+    app.logger.info('Attempting to parse return HTML')
+    parser = TLHTML.TLHTMLParser()
+    parser.feed(r.content.replace('&', '{amp}'))
 
-        app.logger.debug('Response status cookies: {}'.format(r.cookies))
-        app.logger.debug('Response headers: {}'.format(r.headers))
-        # app.logger.debug('Response content: {}'.format(r.content))  # the actual html, it's huge
+    app.logger.debug('Parsed data: {}'.format(parser.output_data))
 
-        app.logger.info('Attempting to parse return HTML')
-        parser = TLHTML.TLHTMLParser()
-        parser.feed(r.content.replace('&', '{amp}'))
+    for item in parser.output_data:
+        data_id = item['id']
+        if p_data['item_dicts_by_id'].get(data_id) is None:
+            p_data['item_dicts_by_id'][data_id] = {}
+            p_data['item_dicts_by_id'][data_id]['return_data_by_type'] = {}
+            p_data['item_dicts_by_id'][data_id]['itemSearchURL'] = ''
+            p_data['item_dicts_by_id'][data_id]['average_item_price'] = float(0)
+            p_data['item_dicts_by_id'][data_id]['display_selection'] = ('completed_sale', 'by_part_num')
 
-        app.logger.debug('Parsed data: {}'.format(parser.output_data))
+        p_data['item_dicts_by_id'][data_id]['parsed_data'] = item['parsed_data']
 
-        for item in parser.output_data:
-            data_id = item['id']
-            if p_data['item_dicts_by_id'].get(data_id) is None:
-                p_data['item_dicts_by_id'][data_id] = {}
-                p_data['item_dicts_by_id'][data_id]['return_data_by_type'] = {}
-                p_data['item_dicts_by_id'][data_id]['itemSearchURL'] = ''
-                p_data['item_dicts_by_id'][data_id]['average_item_price'] = float(0)
-                p_data['item_dicts_by_id'][data_id]['display_selection'] = ('completed_sale', 'by_part_num')
+    my_ebay_api = ebayapi.EbayItemFinder()
+    my_ebay_api.input_dict_list = parser.output_data
+    my_ebay_api.make_requests()
+    app.logger.debug('Output data from our Ebay Finder API: {}'.format(my_ebay_api.output_data_by_id))
 
-            p_data['item_dicts_by_id'][data_id]['parsed_data'] = item['parsed_data']
+    for item_id, item_dict in my_ebay_api.output_data_by_id.iteritems():
 
-        my_ebay_api = ebayapi.EbayItemFinder()
-        my_ebay_api.input_dict_list = parser.output_data
-        my_ebay_api.make_requests()
-        app.logger.debug('Output data from our Ebay Finder API: {}'.format(my_ebay_api.output_data_by_id))
-
-        for item_id, item_dict in my_ebay_api.output_data_by_id.iteritems():
-
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'].update(item_dict['return_data_by_type'])
+        p_data['item_dicts_by_id'][item_id]['return_data_by_type'].update(item_dict['return_data_by_type'])
 
 
-        # TODO: This is where we'll call our analytics engine
+    # TODO: This is where we'll call our analytics engine
 
-        table_data = deepcopy(p_data['item_dicts_by_id'])
-        for item_id, item_data in table_data.iteritems():
-            avg_price = []
-            for sub_item in item_data['return_data_by_type']['completed_sale']['by_part_num']:
-                item_price = sub_item['sellingStatus']['currentPrice'][0]['__value__']
-                item_price = float(item_price)
-                avg_price.append(item_price)
+    table_data = deepcopy(p_data['item_dicts_by_id'])
+    for item_id, item_data in table_data.iteritems():
+        display_selection = item_data['display_selection']
+        avg_price = []
+        avg_shipping_price = []
+        for sub_item in item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data']:
+            index = item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'].index(sub_item)
+            item_price = sub_item['sellingStatus']['currentPrice'][0]['__value__']
+            item_price = float(item_price)
+            avg_price.append(item_price)
 
-            p_data['item_dicts_by_id'][item_id]['average_item_price'] = sum(avg_price) / len(avg_price)
+            if sub_item['shippingInfo']['shippingType'][0].lower() == 'flat':
+                shipping_cost = sub_item['shippingInfo']['shippingServiceCost'][0]['__value__']
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = shipping_cost
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Flat'
+                avg_shipping_price.append(float(shipping_cost))
+            elif sub_item['shippingInfo']['shippingType'][0].lower() == 'free':
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = 0
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Free'
+                avg_shipping_price.append(0)
+            else:
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = ''
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Calculated'
 
-        cached_page_data_by_url[request_url]['item_dicts_by_id'] = p_data['item_dicts_by_id']
-        app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
-        app.logger.debug('Our p_data: {}'.format(p_data))
+        if len(avg_price) > 0:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price'] = sum(avg_price) / len(avg_price)
+        else:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price'] = 0
 
-    else:
-        app.logger.info('Super, we have cached data, no need to pull fresh :-D')
-        app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
-        app.logger.debug('Our p_data: {}'.format(p_data))
-        p_data['item_dicts_by_id'] = cached_page_data_by_url[request_url]['item_dicts_by_id']
-        p_data['request_url'] = request_url
+        if len(avg_shipping_price) > 0:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price'] = sum(avg_shipping_price) / len(avg_shipping_price)
+        else:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price'] = 0
+
+    app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
+    app.logger.debug('Our p_data: {}'.format(p_data))
 
     return render_template('display_results.html', p_data=p_data)
 
@@ -197,24 +204,51 @@ def resubmit():
 
     table_data = deepcopy(p_data['item_dicts_by_id'])
     for item_id, item_data in table_data.iteritems():
-        avg_price = []
         display_selection = item_data['display_selection']
-        for sub_item in item_data['return_data_by_type'][display_selection[0]][display_selection[1]]:
+        avg_price = []
+        avg_shipping_price = []
+        for sub_item in item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data']:
+            index = item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'].index(sub_item)
             item_price = sub_item['sellingStatus']['currentPrice'][0]['__value__']
             item_price = float(item_price)
             avg_price.append(item_price)
 
+            if sub_item['shippingInfo']['shippingType'][0].lower() == 'flat':
+                shipping_cost = sub_item['shippingInfo']['shippingServiceCost'][0]['__value__']
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_cost'] = shipping_cost
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_method'] = 'Flat'
+                avg_shipping_price.append(float(shipping_cost))
+            elif sub_item['shippingInfo']['shippingType'][0].lower() == 'free':
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_cost'] = 0
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_method'] = 'Free'
+                # avg_shipping_price.append(0)
+            else:
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_cost'] = ''
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                    'data'][index]['shipping_method'] = 'Calculated'
+
         if len(avg_price) > 0:
-            p_data['item_dicts_by_id'][item_id]['average_item_price'] = sum(avg_price) / len(avg_price)
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                'average_item_price'] = sum(avg_price) / len(avg_price)
         else:
-            p_data['item_dicts_by_id'][item_id]['average_item_price'] = 0
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                'average_item_price'] = 0
+
+        if len(avg_shipping_price) > 0:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                'average_shipping_price'] = sum(avg_shipping_price) / len(avg_shipping_price)
+        else:
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                'average_shipping_price'] = 0
 
 
     # TODO: This is where we'll call our analytics engine
 
-    if cached_page_data_by_url.get(request_url) is None:
-        cached_page_data_by_url[request_url] = {}
-    cached_page_data_by_url[request_url]['item_dicts_by_id'] = p_data['item_dicts_by_id']
     app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
     app.logger.debug('Our p_data: {}'.format(p_data))
 
