@@ -1,32 +1,32 @@
-{% block display_table %}
+{% block display_table_no_results %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='display_table.js') }}"></script>
+<form action="{{ url_for('input_url') }}" method=get class=add-entry>
     <table>
         <tr>
-            <td><h3>ID</h3></td>
-            <td><h3></h3></td>
-            <td><h3>QTY</h3></td>
+             <td><h3>ID</h3></td>
+            <td><h3>Remove</h3></td>
+            <td><h3>Search By Desc</h3></td>
+            <td><h3>Quantity</h3></td>
             <td><h3>Title</h3></td>
-            <td><h3>Search Method</h3></td>
             <td><h3>Part Number</h3></td>
             <td><h3>Price</h3></td>
             <!--<td><h3>View Gallery</h3><td>-->
             <td><h3>View Listing</h3></td>
         </tr>
-
-                <!--TODO put restriction here to push items less than 5 to the other table-->
-
-
-        {% for id, data in p_data['item_dicts_by_id'].iteritems() %}
-        <tr class="entries" id="{{id}}">
+        {% for data in table_data %}
+        {% set id = data['id'] %}
+        {% if not data['ebay_return_data'] %}
+        <tr>
             <td>{{ id }}</td>
-            <td><input type="button" class="remove_listing" value="Remove"></td>
+            <td><input type="checkbox" class="remove_listing"></td>
             <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
-                <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
-            <td><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></td>
-            <td><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'][1] }} search_method" alt="{{id}}"></td>
-            <td><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></td>
+                <input type="hidden" id="original_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
+            <td>{{ data['parsed_data']['title'] }}</td>
+            <td>{{ data['parsed_data']['partNum'] }}</td>
 
-            <td><input class="price" id="price_{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['average_item_price']|float) }}">
+            <td><input class="price" id="{{id}}" readonly="readonly" value="{{ '${:,.2f}'.format(data['average_item_price']|float) }}">
 
             <!--{% for ebay_return_data in data['ebay_return_data'] %}-->
             <!--&lt;!&ndash;<td>{{ ebay_return_data['title'] }}</td>&ndash;&gt;-->
@@ -37,21 +37,24 @@
             <!--{% endfor %}-->
 
             <td><a href="{{ data.get('itemSearchURL') }}" target="_blank">View Listing</a></td>
-        </tr>
+        <tr>
+          {% endif %}
 
         {% endfor %}
 
-
         <tr>
+            <td>Total:</td>
             <td></td>
             <td></td>
-            <td>Total Quantity:</td>
-            <td id="total_qty"></td>
-            <td></td>
-            <td>Total Price:</td>
             <td id="total_price"></td>
         </tr>
     </table>
+
+    <br>
+    <br>
+
+    <input type=submit value=Back>
+    <input type="button" value="Reset" class="reset">
 
     <br>
     <br>
@@ -61,5 +64,6 @@
 
 
     <!--<img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>-->
+</form>
 
 {% endblock %}
