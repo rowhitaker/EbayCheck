@@ -81,7 +81,7 @@ function calculate_total_price() {
         var shipping_price = parseFloat($(shipping_id).val().replace('$', '').replace(',', ''));
         console.log('string float price:' + $(price_id).val().replace('$', ''));
         console.log('float price:' + float_price);
-        var final_price = (float_price - shipping_price) * qty;
+        var final_price = (float_price + shipping_price) * qty;
 
         total_price += final_price;
     });
@@ -110,7 +110,7 @@ function calculate_total_price_and_reset_quantities() {
         qty = parseFloat($(qty_id).val());
         var float_price = parseFloat($(price_id).val().replace('$', '').replace(',', ''));
         var shipping_price = parseFloat($(shipping_id).val().replace('$', '').replace(',', ''));
-        var final_price = (float_price - shipping_price) * qty;
+        var final_price = (float_price + shipping_price) * qty;
 
         total_price += final_price;
     });

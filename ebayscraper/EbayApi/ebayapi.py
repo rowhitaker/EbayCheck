@@ -105,10 +105,10 @@ class EbayItemFinder(object):
         return_dict = return_json[self.return_data_key][0]  # confirmed this is correct. {[{}]}
         if 'item' in return_dict['searchResult'][0].keys():
             try:
-                item_count = return_dict['searchResult'][0]['@count']
                 for item in return_dict['searchResult'][0]['item']:
                     if item['sellingStatus'][0]['sellingState'][0] == 'EndedWithoutSales':
                         continue
+                    item_count += 1
                     current_item_data = {}
                     for key, value in item.iteritems():
                         current_item_data[key] = value[0]
@@ -162,13 +162,13 @@ class EbayItemFinder(object):
             print 'total entries (from pagination output): {}'.format(
                 return_dict['paginationOutput'][0]['totalEntries'])
             if 'item' in return_dict['searchResult'][0].keys():
-                item_count = return_dict['searchResult'][0]['@count']
                 print 'dict keys of this search result (probably item, @count): {}'.format(
                     return_dict['searchResult'][0].keys())
                 try:
                     for item in return_dict['searchResult'][0]['item']:
                         if item['sellingStatus'][0]['sellingState'][0] == 'EndedWithoutSales':
                             continue
+                        item_count += 1
                         current_item_data = {}
                         for key, value in item.iteritems():
                             current_item_data[key] = value[0]

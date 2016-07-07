@@ -14,18 +14,18 @@
 
 <form id="reload_data" action="{{ url_for('resubmit') }}" method=post>
     <input name="submission_data" id="submission_data" class="hidden">
-    <input type="button" value="Reset" class="reset">
-    <input type="button" value="Search" onclick="submit_form()">
+    <input type="button" value="Reset" class="reset btn btn-primary">
+    <input type="button" value="Search" onclick="submit_form()" class="btn btn-success">
 </form>
-
-<form action="{{ url_for('input_url') }}" method=get>
-    <input type="submit" value="Back">
+&nbsp;
+<form action="{{ url_for('input_url') }}" method=get/>
+    <input type="submit" value="Back" class="btn btn-primary">
 </form>
-
+&nbsp;
 <form action="{{ url_for('display_results') }}" method=post>
     <input class="hidden" name="url" value="{{ p_data['request_url'] }}">
     <input class="hidden" name="reload" value="True">
-    <input type="submit" value="Hard Reload">
+    <input type="submit" value="Hard Reload" class="btn btn-danger">
 </form>
 
 <h2>We were unable to find a return for these guys:</h2>

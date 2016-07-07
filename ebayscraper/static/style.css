@@ -106,6 +106,10 @@ input[type="button"].search_method {
     width: 100%;
 }
 
+.alternate-gray {
+    background-color: lightgray;
+}
+
 .div-table{
   display:table;
   width:auto;
