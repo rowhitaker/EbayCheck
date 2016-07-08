@@ -9,8 +9,7 @@ Version Notes:
     Initial installed beta.
 2.0.1b:
     This is our first real guy out the door.
-    Super proud of this and happy to see it go.
-    Can't wait to see what it becomes.
+    Super proud of this and excited to see what it becomes.
 
 
 Completed:
