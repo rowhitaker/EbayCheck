@@ -1,5 +1,3 @@
-{% block display_table %}
-
 <table class="table">
     <tr>
         <td><h3>ID</h3></td>
@@ -26,7 +24,7 @@
         <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
             <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
         <td><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></td>
-        <td><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'] }} search_method btn btn-primary"
+        <td><input type="button" id="search_method_{{id}}" class="{{ display_selection }} search_method btn btn-primary"
                    alt="{{id}}"></td>
         <td><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></td>
 
@@ -38,7 +36,7 @@
         <td><a id="sub_data_{{id}}" class="view_sub_data btn btn-primary">View Details</a></td>
     </tr>
 
-    <tr class="hidden sub_data sub_data_{{id}}">
+    <tr class="hidden sub_data sub_data_{{id}} alternate-gray">
         <td><h3></h3></td>
         <td><h3></h3></td>
         <td><h3></h3></td>
@@ -52,7 +50,7 @@
     </tr>
     {% for ebay_return_data in data['return_data_by_type'][display_selection]['data'] %}
 
-    <tr class="hidden sub_data sub_data_{{id}}">
+    <tr class="hidden sub_data sub_data_{{id}} alternate-gray">
         <td></td>
         <td></td>
         <td></td>
@@ -60,8 +58,8 @@
         <td>{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</td>
         <td>{{ '${:,.2f}'.format(ebay_return_data['shipping_cost']|float) }}</td>
         <td>{{ ebay_return_data['shipping_method'] }}</td>
-        <td><a class="btn btn-info" href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></td>
-        <td><a class="btn btn-info" href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
+        <td><a class="btn btn-primary" href="{{ ebay_return_data['viewItemURL'] }}" target="_blank">View Listing</a></td>
+        <td><a class="btn btn-primary" href="{{ ebay_return_data['galleryURL'] }}" target="_blank">View Image Gallery</a></td>
         <td>&nbsp;</td>
 
     </tr>
@@ -85,14 +83,3 @@
         <td>&nbsp;</td>
     </tr>
 </table>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<!--<img src="{{ url_for('static', filename='dora.jpg') }}" alt="Hell yeah we did!"/>-->
-
-{% endblock %}

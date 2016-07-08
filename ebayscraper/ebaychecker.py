@@ -8,7 +8,7 @@ from datetime import datetime as DT
 from EbayApi import ebayapi
 from copy import deepcopy
 
-testing = False
+testing = True
 
 
 p_data = {}
@@ -27,8 +27,7 @@ app.config.from_object(__name__)
 # Load default config and override config from an environment variable
 app.config.update(dict(
     SECRET_KEY='Th1sIs0uRSt0opidS33cr3tP@sSW0rd!#!#$%%*',
-    LOGINNAME='rwhitaker',
-    PASSWORD='abc123'
+    LOGINCREDS={'rwhitaker': 'abc123', 'guest': '123abc', 'ben': 'weatherl'}
 ))
 
 app.config.from_envvar('EBAYCHECKER_SETTINGS',
@@ -40,16 +39,20 @@ def login():
     set_step(step_name='Login', method=request.method)
     error_msg = None
     if request.method == 'POST':
-        app.logger.info('login name requesting access: {}'.format(request.form['loginname']))
-        if request.form['loginname'] != app.config['LOGINNAME']:
+        submitted_login = request.form['loginname']
+        submitted_pwd = request.form['password']
+
+        app.logger.info('login name requesting access: {}'.format(submitted_login))
+        if submitted_login not in app.config['LOGINCREDS'].keys():
             app.logger.error('Invalid Login Name')
             error_msg = 'Invalid username or password'
-        elif request.form['password'] != app.config['PASSWORD']:
+
+        elif submitted_pwd != app.config['LOGINCREDS'][submitted_login]:
             app.logger.error('Invalid Password')
             error_msg = 'Invalid username or password'
         else:
             session['logged_in'] = True
-            flash('Hi {}! I hope you\'re having a great day so far!'.format(request.form['loginname']))
+            session['loginname'] = submitted_login
             app.logger.info('Successfully logged in')
             app.logger.info('Redirecting to "INPUT_URL"')
             return redirect(url_for('input_url'))
@@ -73,7 +76,15 @@ def input_url():
         # abort(401)
         return redirect(url_for('login'))
     app.logger.info('Rendering "INPUT_URL"')
-    return render_template('input_url.html')
+
+    default_url = ''
+    if session['loginname'] == 'guest':
+        flash('Hey {}!'.format(session['loginname']))
+        flash('Thanks for checking out my tool.')
+        flash('why don\'t you try hitting submit on the button below')
+        default_url = 'https://techliquidators.com/index.cfm/p/34/i/1803366'
+
+    return render_template('input_url.html', default_url=default_url)
 
 
 @app.route('/display_results', methods=['POST'])
