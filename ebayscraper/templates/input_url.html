@@ -1,13 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
-  {% if session.logged_in %}
-    <form action="{{ url_for('display_results') }}" method=post class=add-entry>
-      <dl>
-        <dt>URL:
-        <dd><input type=text size=100 name=url>
-        <dd><input type=submit value=Submit>
-      </dl>
-    </form>
-  {% endif %}
-  </ul>
+{% if session.logged_in %}
+<form action="{{ url_for('display_results') }}" method=post class="form-url-entry">
+    <div></div>
+    <lable for="url">URL:</lable>
+    <input class="form-control" type=text size=100 id="url" name=url value="{{ default_url }}">
+    <input type=submit class="btn btn-default" value=Submit>
+    </div>
+</form>
+{% endif %}
 {% endblock %}

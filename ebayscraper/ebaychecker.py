@@ -27,8 +27,7 @@ app.config.from_object(__name__)
 # Load default config and override config from an environment variable
 app.config.update(dict(
     SECRET_KEY='Th1sIs0uRSt0opidS33cr3tP@sSW0rd!#!#$%%*',
-    LOGINNAME='rwhitaker',
-    PASSWORD='abc123'
+    LOGINCREDS={'rwhitaker': 'abc123', 'guest': '123abc', 'ben': 'weatherl'}
 ))
 
 app.config.from_envvar('EBAYCHECKER_SETTINGS',
@@ -40,16 +39,20 @@ def login():
     set_step(step_name='Login', method=request.method)
     error_msg = None
     if request.method == 'POST':
-        app.logger.info('login name requesting access: {}'.format(request.form['loginname']))
-        if request.form['loginname'] != app.config['LOGINNAME']:
+        submitted_login = request.form['loginname']
+        submitted_pwd = request.form['password']
+
+        app.logger.info('login name requesting access: {}'.format(submitted_login))
+        if submitted_login not in app.config['LOGINCREDS'].keys():
             app.logger.error('Invalid Login Name')
             error_msg = 'Invalid username or password'
-        elif request.form['password'] != app.config['PASSWORD']:
+
+        elif submitted_pwd != app.config['LOGINCREDS'][submitted_login]:
             app.logger.error('Invalid Password')
             error_msg = 'Invalid username or password'
         else:
             session['logged_in'] = True
-            flash('Hi {}! I hope you\'re having a great day so far!'.format(request.form['loginname']))
+            session['loginname'] = submitted_login
             app.logger.info('Successfully logged in')
             app.logger.info('Redirecting to "INPUT_URL"')
             return redirect(url_for('input_url'))
@@ -73,7 +76,15 @@ def input_url():
         # abort(401)
         return redirect(url_for('login'))
     app.logger.info('Rendering "INPUT_URL"')
-    return render_template('input_url.html')
+
+    default_url = ''
+    if session['loginname'] == 'guest':
+        flash('Hey {}!'.format(session['loginname']))
+        flash('Thanks for checking out my tool.')
+        flash('why don\'t you try hitting submit on the button below')
+        default_url = 'https://techliquidators.com/index.cfm/p/34/i/1803366'
+
+    return render_template('input_url.html', default_url=default_url)
 
 
 @app.route('/display_results', methods=['POST'])
@@ -298,25 +309,6 @@ def close():
     app.logger.critical('{0} {1} {0}'.format('*' * 12, completed_message))
     app.logger.critical('*' * message_length)
     logging.shutdown()
-
-
-def main():
-    log_dir = 'Logs'
-
-    date_format = '%Y%m%d'
-    current_date = DT.now().strftime(date_format)
-    current_time = DT.now().strftime('%H%M%S%f')
-
-    # build logger
-    name = 'EbayChecker'
-    file_hdlr = logging.FileHandler('./{}/{}_{}_{}.{}'.format(log_dir, name, current_date, current_time, 'log'))
-    formatter = logging.Formatter(fmt='%(asctime)s %(levelname)-8s %(message)s',
-                                  datefmt='%Y%m%d_%H%M%S')
-    file_hdlr.setLevel(logging.DEBUG)
-    file_hdlr.setFormatter(formatter)
-
-    app.logger.addHandler(file_hdlr)
-    app.run(debug=True, host='0.0.0.0')
 
 
 if __name__ == '__main__':
