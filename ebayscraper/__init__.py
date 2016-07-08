@@ -1,5 +1,5 @@
 name = 'ebaychecker'
-version = '2.0.1b'
+version = '2.0.2b'
 
 
 """
@@ -10,11 +10,14 @@ Version Notes:
 2.0.1b:
     This is our first real guy out the door.
     Super proud of this and excited to see what it becomes.
-
+2.0.2b
+    -Created and sorted entries into a second table when they have less than 3 ebay item returns
+    - Reworked login page and input_url with bootstrap
+    - Inserted multiple sets of credentials
+    - Split out html templating to include imports page
 
 Completed:
 
-    -Created and sorted entries into a second table when they have less than 3 ebay item returns
 
 
 
