@@ -18,7 +18,7 @@
 
     {% for id, data in p_data['item_dicts_by_id'].iteritems() %}
     {% set display_selection = data['display_selection'] %}
-    {% set item_count = data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] %}
+    {% set item_count = data['return_data_by_type'][display_selection]['item_count'] %}
     {% if item_count >= 3 %}
     <tr class="entries" id="{{id}}">
         <td>{{ id }}</td>
@@ -26,15 +26,15 @@
         <td><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
             <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></td>
         <td><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></td>
-        <td><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'][1] }} search_method btn btn-primary"
+        <td><input type="button" id="search_method_{{id}}" class="{{ display_selection }} search_method btn btn-primary"
                    alt="{{id}}"></td>
         <td><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></td>
 
         <td>$<input class="price" id="price_{{id}}"
-                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price']|float) }}">
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection]['average_item_price']|float) }}">
         <td>$<input class="price" id="shipping_{{id}}"
-                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price']|float) }}">
-        <td>{{ data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] }}</td>
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection]['average_shipping_price']|float) }}">
+        <td>{{ data['return_data_by_type'][display_selection]['item_count'] }}</td>
         <td><a id="sub_data_{{id}}" class="view_sub_data btn btn-primary">View Details</a></td>
     </tr>
 
@@ -50,7 +50,7 @@
         <td><h3>View Links</h3></td>
         <td><h3>&nbsp;</h3></td>
     </tr>
-    {% for ebay_return_data in data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'] %}
+    {% for ebay_return_data in data['return_data_by_type'][display_selection]['data'] %}
 
     <tr class="hidden sub_data sub_data_{{id}} alternate-gray">
         <td></td>

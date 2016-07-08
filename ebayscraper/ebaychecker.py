@@ -119,7 +119,7 @@ def display_results():
             p_data['item_dicts_by_id'][data_id]['return_data_by_type'] = {}
             p_data['item_dicts_by_id'][data_id]['itemSearchURL'] = ''
             p_data['item_dicts_by_id'][data_id]['average_item_price'] = float(0)
-            p_data['item_dicts_by_id'][data_id]['display_selection'] = ('completed_sale', 'by_part_num')
+            p_data['item_dicts_by_id'][data_id]['display_selection'] = 'by_part_num'
 
         p_data['item_dicts_by_id'][data_id]['parsed_data'] = item['parsed_data']
 
@@ -140,34 +140,34 @@ def display_results():
         display_selection = item_data['display_selection']
         avg_price = []
         avg_shipping_price = []
-        for sub_item in item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data']:
-            index = item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'].index(sub_item)
+        for sub_item in item_data['return_data_by_type'][display_selection]['data']:
+            index = item_data['return_data_by_type'][display_selection]['data'].index(sub_item)
             item_price = sub_item['sellingStatus']['currentPrice'][0]['__value__']
             item_price = float(item_price)
             avg_price.append(item_price)
 
             if sub_item['shippingInfo']['shippingType'][0].lower() == 'flat':
                 shipping_cost = sub_item['shippingInfo']['shippingServiceCost'][0]['__value__']
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = shipping_cost
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Flat'
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_cost'] = shipping_cost
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_method'] = 'Flat'
                 avg_shipping_price.append(float(shipping_cost))
             elif sub_item['shippingInfo']['shippingType'][0].lower() == 'free':
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = 0
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Free'
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_cost'] = 0
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_method'] = 'Free'
                 avg_shipping_price.append(0)
             else:
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_cost'] = ''
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['data'][index]['shipping_method'] = 'Calculated'
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_cost'] = ''
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['data'][index]['shipping_method'] = 'Calculated'
 
         if len(avg_price) > 0:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price'] = sum(avg_price) / len(avg_price)
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['average_item_price'] = sum(avg_price) / len(avg_price)
         else:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price'] = 0
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['average_item_price'] = 0
 
         if len(avg_shipping_price) > 0:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price'] = sum(avg_shipping_price) / len(avg_shipping_price)
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['average_shipping_price'] = sum(avg_shipping_price) / len(avg_shipping_price)
         else:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price'] = 0
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection]['average_shipping_price'] = 0
 
     app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
     app.logger.debug('Our p_data: {}'.format(p_data))
@@ -189,12 +189,12 @@ def resubmit():
     table_data = deepcopy(p_data['item_dicts_by_id'])
     for item_id, item_data in table_data.iteritems():
         display_selection = item_data['display_selection']
-        p_data['item_dicts_by_id'][item_id]['return_data_by_type'] = {display_selection[0]: {display_selection[1]: {}}}
-        p_data['item_dicts_by_id'][item_id]['display_selection'] = (display_selection[0], display_selection[1])
+        p_data['item_dicts_by_id'][item_id]['return_data_by_type'] = {display_selection: {}}
+        p_data['item_dicts_by_id'][item_id]['display_selection'] = display_selection
 
         my_ebay_api.current_item_id = item_id
         my_ebay_api.current_parsed_data = item_data['parsed_data']
-        my_ebay_api.make_request(display_selection[1])
+        my_ebay_api.make_request(display_selection)
 
     for data_id, data_dict in my_ebay_api.output_data_by_id.iteritems():
         p_data['item_dicts_by_id'][data_id]['return_data_by_type'].update(data_dict['return_data_by_type'])
@@ -207,43 +207,43 @@ def resubmit():
         display_selection = item_data['display_selection']
         avg_price = []
         avg_shipping_price = []
-        for sub_item in item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data']:
-            index = item_data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'].index(sub_item)
+        for sub_item in item_data['return_data_by_type'][display_selection]['data']:
+            index = item_data['return_data_by_type'][display_selection]['data'].index(sub_item)
             item_price = sub_item['sellingStatus']['currentPrice'][0]['__value__']
             item_price = float(item_price)
             avg_price.append(item_price)
 
             if sub_item['shippingInfo']['shippingType'][0].lower() == 'flat':
                 shipping_cost = sub_item['shippingInfo']['shippingServiceCost'][0]['__value__']
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_cost'] = shipping_cost
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_method'] = 'Flat'
                 avg_shipping_price.append(float(shipping_cost))
             elif sub_item['shippingInfo']['shippingType'][0].lower() == 'free':
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_cost'] = 0
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_method'] = 'Free'
                 # avg_shipping_price.append(0)
             else:
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_cost'] = ''
-                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+                p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                     'data'][index]['shipping_method'] = 'Calculated'
 
         if len(avg_price) > 0:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                 'average_item_price'] = sum(avg_price) / len(avg_price)
         else:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                 'average_item_price'] = 0
 
         if len(avg_shipping_price) > 0:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                 'average_shipping_price'] = sum(avg_shipping_price) / len(avg_shipping_price)
         else:
-            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection[0]][display_selection[1]][
+            p_data['item_dicts_by_id'][item_id]['return_data_by_type'][display_selection][
                 'average_shipping_price'] = 0
 
 

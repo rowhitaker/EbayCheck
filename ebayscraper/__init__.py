@@ -24,6 +24,8 @@ Completed:
 """
 TODO:
 
+    -Implement ajax calls for individual items
+
     -Add date sold
 
     -Determine how often an item sells

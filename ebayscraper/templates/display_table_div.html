@@ -24,19 +24,19 @@
         <div class="div-table-data"><input class="qty" id="qty_{{id}}" type="number" value="{{ data['parsed_data']['qty'] }}" size="15px">
             <input type="hidden" id="original_qty_{{id}}" value="{{ data['parsed_data']['qty'] }}"></div>
         <div class="div-table-data"><input id="title_{{id}}" value="{{ data['parsed_data']['title'] }}" style="width: 500px;"></div>
-        <div class="div-table-data"><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'][1] }} search_method"
+        <div class="div-table-data"><input type="button" id="search_method_{{id}}" class="{{ data['display_selection'] }} search_method"
                    alt="{{id}}"></div>
         <div class="div-table-data"><span id="part_num_{{id}}">{{ data['parsed_data']['partNum'] }}</span></div>
 
         <div class="div-table-data">$<input class="price" id="price_{{id}}"
-                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_item_price']|float) }}">
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection]['average_item_price']|float) }}">
         <div class="div-table-data">$<input class="price" id="shipping_{{id}}"
-                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection[0]][display_selection[1]]['average_shipping_price']|float) }}">
-        <div class="div-table-data">{{ data['return_data_by_type'][display_selection[0]][display_selection[1]]['item_count'] }}</div>
+                   value="{{ '{:,.2f}'.format(data['return_data_by_type'][display_selection]['average_shipping_price']|float) }}">
+        <div class="div-table-data">{{ data['return_data_by_type'][display_selection]['item_count'] }}</div>
         <div class="div-table-data"><a href="{{ data.get('itemSearchURL') }}" target="_blank">View Listing</a></div>
     </div>
 
-    <!--{% for ebay_return_data in data['return_data_by_type'][display_selection[0]][display_selection[1]]['data'] %}-->
+    <!--{% for ebay_return_data in data['return_data_by_type'][display_selection]['data'] %}-->
     <!--<tr class="hidden">-->
         <!--<div class="div-table-data">{{ ebay_return_data['title'] }}</div>-->
         <!--<div class="div-table-data">{{ '${:,.2f}'.format(ebay_return_data['sellingStatus']['currentPrice'][0]['__value__']|float) }}</div>-->

@@ -152,16 +152,16 @@ function submit_form() {
 
         var display_selection;
         if (search_method.hasClass('by_part_num') && search_method.hasClass('pressed')) {
-            display_selection = ['completed_sale', 'by_title'];
+            display_selection = 'by_title';
         }
         else if (search_method.hasClass('by_title') && !search_method.hasClass('pressed')) {
-            display_selection = ['completed_sale', 'by_part_num'];
+            display_selection = 'by_part_num';
         }
         else if (search_method.hasClass('by_part_num')) {
-            display_selection = ['completed_sale', 'by_part_num'];
+            display_selection = 'by_part_num';
         }
         else {
-            display_selection = ['completed_sale', 'by_title'];
+            display_selection = 'by_title';
         }
 
         console.log('our other stuff: ' + qty + ' ' + price + ' ' + part_num + ' ' + title + ' ' + search_method);

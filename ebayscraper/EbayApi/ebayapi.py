@@ -39,7 +39,6 @@ class EbayItemFinder(object):
         self.output_data_by_id = {}
         self.request_data_key = ''
         self.return_data_key = ''
-        self.return_dict_key = ''
 
     def build_request_headers_for_completed_listings(self):
         self.header_dict = {'X-EBAY-SOA-SECURITY-APPNAME': self.app_id,
@@ -49,7 +48,6 @@ class EbayItemFinder(object):
                             'X-EBAY-SOA-SERVICE-VERSION': '1.0.0'}
         self.request_data_key = 'tns.findCompletedItemsRequest'
         self.return_data_key = 'findCompletedItemsResponse'
-        self.return_dict_key = 'completed_sale'
 
     def build_request_headers_for_current_listings(self):
         self.header_dict = {'X-EBAY-SOA-SECURITY-APPNAME': self.app_id,
@@ -59,7 +57,6 @@ class EbayItemFinder(object):
                             'X-EBAY-SOA-SERVICE-VERSION': '1.0.0'}
         self.request_data_key = 'tns.findItemsByKeywordsRequest'
         self.return_data_key = 'findItemsByKeywordsResponse'
-        self.return_dict_key = 'live_auction'
 
     def build_request_json_body_by_part_num_for_sold_items(self):
         current_request_dict = {'keywords': self.current_parsed_data.get('partNum'),
@@ -124,7 +121,7 @@ class EbayItemFinder(object):
 
         self.output_data_by_id[self.current_item_id] = {
             'itemSearchURL': return_dict.get('itemSearchURL', [None])[0],
-            'return_data_by_type': {self.return_dict_key: {search_type: {'item_count': item_count, 'data': new_output_data}}}}
+            'return_data_by_type': {search_type: {'item_count': item_count, 'data': new_output_data}}}
         print 'our output dict: {}'.format(self.output_data_by_id[self.current_item_id])
 
 
@@ -184,7 +181,7 @@ class EbayItemFinder(object):
 
             self.output_data_by_id[self.current_item_id] = {
                 'itemSearchURL': return_dict.get('itemSearchURL', [None])[0],
-                'return_data_by_type': {'completed_sale': {'by_part_num': {'item_count': item_count, 'data': new_output_data}}}}
+                'return_data_by_type': {'by_part_num': {'item_count': item_count, 'data': new_output_data}}}
 
                 # for name, value in return_dict.iteritems():
                 #     if name == 'searchResult':
