@@ -3,8 +3,6 @@ import requests
 import json
 import time
 
-testing = True
-
 
 # http://www.ebay.com/sch/i.html?&_nkw=FDRAX33/B&LH_Complete=1&LH_Sold=1&rt=nc
 

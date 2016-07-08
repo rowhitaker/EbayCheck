@@ -8,7 +8,7 @@ from datetime import datetime as DT
 from EbayApi import ebayapi
 from copy import deepcopy
 
-testing = True
+testing = False
 
 
 p_data = {}
