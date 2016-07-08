@@ -1,7 +1,36 @@
 {% extends "layout.html" %}
 {% block body %}
 {% if session.logged_in %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='display_table.js') }}"></script>
+<script type="text/javascript">{% include "display_results.js" %}</script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<h3>Results for <a href="{{ p_data['request_url'] }}" target="_blank">{{ p_data['request_url'] }}</a><input class="hidden" value="{{p_data['request_url']}}" id="request_url"></h3>
 {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+
     {% include "display_table.html" %}
-  {% endif %}
+
+<form id="reload_data" action="{{ url_for('resubmit') }}" method=post>
+    <input name="submission_data" id="submission_data" class="hidden">
+    <input type="button" value="Reset" class="reset btn btn-primary">
+    <input type="button" value="Search" onclick="submit_form()" class="btn btn-success">
+</form>
+&nbsp;
+<form action="{{ url_for('input_url') }}" method=get/>
+    <input type="submit" value="Back" class="btn btn-primary">
+</form>
+&nbsp;
+<form action="{{ url_for('display_results') }}" method=post>
+    <input class="hidden" name="url" value="{{ p_data['request_url'] }}">
+    <input class="hidden" name="reload" value="True">
+    <input type="submit" value="Hard Reload" class="btn btn-danger">
+</form>
+
+<h2>We were unable to find a return for these guys:</h2>
+
+    {% include "display_table_no_results.html" %}
+
+{% endif %}
 {% endblock %}
