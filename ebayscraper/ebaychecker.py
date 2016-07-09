@@ -8,8 +8,7 @@ from datetime import datetime as DT
 from EbayApi import ebayapi
 from copy import deepcopy
 
-testing = True
-
+testing = False
 
 p_data = {}
 p_data['item_dicts_by_id'] = {}
@@ -314,6 +313,12 @@ def close():
 if __name__ == '__main__':
 
     try:
+        import socket
+
+        computer_name = socket.gethostname()
+
+        if computer_name.lower() == 'pi-sb':
+            testing = True
         ip = '0.0.0.0'
         if testing:
             import os

@@ -26,6 +26,8 @@ Completed:
 """
 TODO:
 
+    - Make so that username is not case sensitive
+
     -Implement ajax calls for individual items
 
     -Add date sold
