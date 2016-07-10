@@ -1,3 +1,4 @@
+import sys
 import json
 import requests
 from flask import Flask, request, session, g, redirect, url_for, abort, \
@@ -7,8 +8,6 @@ from HTMLParsers import TechLiquidatorHTMLParser as TLHTML
 from datetime import datetime as DT
 from EbayApi import ebayapi
 from copy import deepcopy
-
-testing = False
 
 p_data = {}
 p_data['item_dicts_by_id'] = {}
@@ -310,12 +309,13 @@ def close():
     logging.shutdown()
 
 
-if __name__ == '__main__':
-
+def main():
     try:
         import socket
 
         computer_name = socket.gethostname()
+
+        testing = False
 
         if computer_name.lower() == 'pi-sb':
             testing = True
@@ -349,3 +349,8 @@ if __name__ == '__main__':
 
     except Exception, e:
         print 'uh oh, we ran into an exception: {}'.format(e)
+
+
+if __name__ == '__main__':
+    
+    sys.exit(main())
