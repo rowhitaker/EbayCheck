@@ -79,7 +79,7 @@ class EbayItemFinder(object):
     def make_request(self, search_type):
         new_output_data = []
         item_count = 0
-        print '\n\nSEARCHING BY {}'.format(search_type)
+        # print '\n\nSEARCHING BY {}'.format(search_type)
         if search_type == 'by_title':
             self.build_request_json_body_by_title_for_sold_items()
         else:
@@ -112,17 +112,18 @@ class EbayItemFinder(object):
                     new_output_data.append(current_item_data)
 
             except Exception, e:
-                print 'serious error\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
+                # print 'serious error\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
                 return 'error'
         else:
+            pass
             # TODO This is where we can handle the ones with low counts
-            print 'this entry has no... entries'
-            print return_dict['searchResult'][0]['@count']
+            # print 'this entry has no... entries'
+            # print return_dict['searchResult'][0]['@count']
 
         self.output_data_by_id[self.current_item_id] = {
             'itemSearchURL': return_dict.get('itemSearchURL', [None])[0],
             'return_data_by_type': {search_type: {'item_count': item_count, 'data': new_output_data}}}
-        print 'our output dict: {}'.format(self.output_data_by_id[self.current_item_id])
+        # print 'our output dict: {}'.format(self.output_data_by_id[self.current_item_id])
 
 
 
@@ -141,7 +142,7 @@ class EbayItemFinder(object):
             new_output_data = []
             item_count = 0
             self.current_item_id = current_item['id']
-            print 'id: {}'.format(self.current_item_id)
+            # print 'id: {}'.format(self.current_item_id)
             self.current_parsed_data = current_item['parsed_data']
             self.build_request_json_body_by_part_num_for_sold_items()
             body = json.dumps(self.final_request_dict_by_part_num)
@@ -153,14 +154,12 @@ class EbayItemFinder(object):
                 r = s.post(url=self.variable_post_url, data=body)
                 i += 1
             return_json = json.loads(r.content)
-            print 'return json: {}'.format(return_json)
+            # print 'return json: {}'.format(return_json)
             return_dict = return_json['findCompletedItemsResponse'][0]  # confirmed this is correct. {[{}]}
-            print 'return dict: {}'.format(return_dict)
-            print 'total entries (from pagination output): {}'.format(
-                return_dict['paginationOutput'][0]['totalEntries'])
+            # print 'return dict: {}'.format(return_dict)
+            # print 'total entries (from pagination output): {}'.format(return_dict['paginationOutput'][0]['totalEntries'])
             if 'item' in return_dict['searchResult'][0].keys():
-                print 'dict keys of this search result (probably item, @count): {}'.format(
-                    return_dict['searchResult'][0].keys())
+                # print 'dict keys of this search result (probably item, @count): {}'.format(return_dict['searchResult'][0].keys())
                 try:
                     for item in return_dict['searchResult'][0]['item']:
                         if item['sellingStatus'][0]['sellingState'][0] == 'EndedWithoutSales':
@@ -172,12 +171,13 @@ class EbayItemFinder(object):
                         new_output_data.append(current_item_data)
 
                 except Exception, e:
-                    print 'serious error\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
+                    # print 'serious error\n{}\nerror: {}\n\n'.format(return_dict['searchResult'], e)
                     continue
             else:
+                pass
                 # TODO This is where we can handle the ones with low counts
-                print 'this entry has no... entries'
-                print return_dict['searchResult'][0]['@count']
+                # print 'this entry has no... entries'
+                # print return_dict['searchResult'][0]['@count']
 
             self.output_data_by_id[self.current_item_id] = {
                 'itemSearchURL': return_dict.get('itemSearchURL', [None])[0],
@@ -187,8 +187,8 @@ class EbayItemFinder(object):
                 #     if name == 'searchResult':
                 #         for item in value[0]['item']:
                 #             for this, that in item.iteritems():
-                #                 print this, that
-                # print return_dict.get('itemSearchURL')
+                #                 # print this, that
+                # # print return_dict.get('itemSearchURL')
 
 
 if __name__ == "__main__":
