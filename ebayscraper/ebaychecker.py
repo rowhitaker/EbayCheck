@@ -21,6 +21,7 @@ def reinitialize_p_data():
 # create our little application :)
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.logger.setLevel(logging.INFO)
 
 # Load default config and override config from an environment variable
 app.config.update(dict(
@@ -41,7 +42,7 @@ def login():
             submitted_login = request.form['loginname']
             submitted_pwd = request.form['password']
 
-            app.logger.info('login name requesting access: {}'.format(submitted_login))
+            app.logger.critical('Login name requesting access: {}'.format(submitted_login))
             if submitted_login not in app.config['LOGINCREDS'].keys():
                 app.logger.error('Invalid Login Name')
                 error_msg = 'Invalid username or password'
@@ -100,7 +101,7 @@ def display_results():
         set_step(step_name='display results', method=request.method)
         request_url = request.form['url']
         p_data['request_url'] = request_url
-        app.logger.info('The URL that was requested: {}'.format(request_url))
+        app.logger.critical('The URL that was requested: {}'.format(request_url))
 
         app.logger.info('We don\'t have this data cached, pulling fresh.')
         app.logger.debug('Creating an HTTP requests Session')
@@ -189,6 +190,8 @@ def display_results():
         app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
         app.logger.debug('Our p_data: {}'.format(p_data))
 
+        app.logger.critical('Returning data')
+
         return render_template('display_results.html', p_data=p_data)
     except Exception, e:
         app.logger.error('Ran into an error: {}'.format(e))
@@ -272,6 +275,8 @@ def resubmit():
         app.logger.debug('Our p_data keys: {}'.format(p_data.keys()))
         app.logger.debug('Our p_data: {}'.format(p_data))
 
+        app.logger.critical('Returning data')
+
         return render_template('display_results.html', p_data=p_data)
 
     except Exception, e:
@@ -324,11 +329,7 @@ def close():
 
 def main():
 
-    file_handler = logging.StreamHandler()
-    file_handler.setLevel(logging.INFO)
-    app.logger.addHandler(file_handler)
-
-    ip = '127.0.0.1'
+    ip = '0.0.0.0'
     app.run(debug=False, host=ip)
 
 if __name__ == '__main__':
