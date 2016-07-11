@@ -309,7 +309,7 @@ def set_step(step_name, method):
     app.logger.critical('*' * 100)
     app.logger.critical('{} Current Step: {} '.format('*' * 25, current_step).ljust(100, '*'))
     app.logger.critical('{} Method: {} '.format('*' * 25, method).ljust(100, '*'))
-    app.logger.critical('{} Session: {} '.format('*' * 25, session.get('session')).ljust(100, '*'))
+    app.logger.critical('{} Login: {} '.format('*' * 25, session.get('loginname')).ljust(100, '*'))
     app.logger.critical('*' * 100)
 
 
@@ -324,9 +324,12 @@ def close():
 
 def main():
 
-    ip = '0.0.0.0'
-    app.logger.setLevel(logging.INFO)
-    app.run(host=ip)
+    file_handler = logging.StreamHandler()
+    file_handler.setLevel(logging.INFO)
+    app.logger.addHandler(file_handler)
+
+    ip = '127.0.0.1'
+    app.run(debug=False, host=ip)
 
 if __name__ == '__main__':
 
